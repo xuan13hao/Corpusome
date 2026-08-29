@@ -7,7 +7,7 @@ let currentColorBy = 'body_site';
 let currentCoord   = 'pre';
 
 async function loadBatch() {
-  embData = await fetch('data/embedding.json').then(r => r.json());
+  embData = BATCH_DATA;
   renderPlot();
 
   /* ── Color-by toggle ─────────────────────────────────────────── */

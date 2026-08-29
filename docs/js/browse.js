@@ -6,7 +6,7 @@ let allRows = [];
 let table;
 
 async function loadBrowse() {
-  const data = await fetch('data/samples_browse.json').then(r => r.json());
+  const data = BROWSE_DATA;
   allRows = data;
 
   document.getElementById('count-total').textContent = fmtNumFull(allRows.length);

@@ -3,10 +3,8 @@
    ═══════════════════════════════════════════════════════════════ */
 
 async function loadOverview() {
-  const [stats, breakdown] = await Promise.all([
-    fetch('data/summary_stats.json').then(r => r.json()),
-    fetch('data/body_site_source_breakdown.json').then(r => r.json()),
-  ]);
+  const stats    = SUMMARY_STATS;
+  const breakdown = BREAKDOWN_DATA;
 
   /* ── Stat cards ───────────────────────────────────────────────── */
   document.getElementById('stat-samples').textContent    = fmtNumFull(stats.n_samples_total);

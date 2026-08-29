@@ -3,7 +3,7 @@
    ═══════════════════════════════════════════════════════════════ */
 
 async function loadQC() {
-  const data = await fetch('data/qc_metrics.json').then(r => r.json());
+  const data = QC_DATA;
 
   const ld  = plotlyLayout();
   const cfg = PLOTLY_CONFIG;
