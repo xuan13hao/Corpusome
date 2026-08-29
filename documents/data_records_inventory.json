@@ -1,0 +1,111 @@
+{
+ "dataset_title": "Harmonized cross-body-site human microbiome corpus \u2014 expanded (v1.1)",
+ "version": "1.1",
+ "build_date": "2026-08-23",
+ "n_samples_total": 187546,
+ "expansion_note": "16S pretraining tier scaled from 8,092 to 164,958 samples via a full MGnify human body-site pull (708 studies, study-level SSU taxonomy tables). Shotgun tier unchanged (22,588).",
+ "tiers": {
+  "shotgun": {
+   "source": "curatedMetagenomicData 3.18.0",
+   "modality": "shotgun",
+   "n_samples": 22588,
+   "ranks": [
+    "phylum",
+    "class",
+    "order",
+    "family",
+    "genus",
+    "species"
+   ]
+  },
+  "16S": {
+   "sources": [
+    "American Gut Project (Qiita 10317)",
+    "MGnify demonstrator (12 studies)",
+    "MGnify full body-site pull (708 studies)"
+   ],
+   "modality": "16S rRNA amplicon",
+   "n_samples": 164958,
+   "ranks": [
+    "phylum",
+    "class",
+    "order",
+    "family",
+    "genus"
+   ],
+   "reference": "MGnify SSU (SILVA lineages) + AGP Greengenes; harmonized on terminal genus token"
+  }
+ },
+ "by_body_site": {
+  "stool": 95384,
+  "respiratory": 40833,
+  "oral": 24463,
+  "skin": 14635,
+  "urogenital": 12223,
+  "milk": 8
+ },
+ "health_status": {
+  "unlabeled": 164958,
+  "healthy": 14566,
+  "diseased": 8022
+ },
+ "data_records": [
+  {
+   "file": "corpus_metadata_catalog_expanded.parquet",
+   "size_bytes": 1953501,
+   "sha256": "414434727fb50c2dd51953ddcfe6f82d153771278fd1af43d95a2a139b47fdec"
+  },
+  {
+   "file": "corpus_16s_genus_relab_expanded.parquet",
+   "size_bytes": 74013578,
+   "sha256": "f78ef460601f3ba86c599f7b55b6c3e6719207bdcf2489f4919c1d0cc0658555"
+  },
+  {
+   "file": "corpus_16s_metadata_expanded.csv",
+   "size_bytes": 13633793,
+   "sha256": "3f837809ac5f977e8ada120798d64af5e91610ff9e305f693fc39ea9356dac81"
+  },
+  {
+   "file": "corpus_mgnify_phylum_relab.parquet",
+   "size_bytes": 9342577,
+   "sha256": "aa7e5c0eb2a8e2e8e325257f64a51110a6ea459d6fa42059799930997e495166"
+  },
+  {
+   "file": "corpus_mgnify_class_relab.parquet",
+   "size_bytes": 16448207,
+   "sha256": "53ac9787e6599968e5d0d14dd98caeaa61b19ff095afb2656d14bb14cf30cb49"
+  },
+  {
+   "file": "corpus_mgnify_order_relab.parquet",
+   "size_bytes": 26580372,
+   "sha256": "3aa422a5878d715080a45bc32cb16695731303f8b8473ee8d94b761f755a4ff8"
+  },
+  {
+   "file": "corpus_mgnify_family_relab.parquet",
+   "size_bytes": 40248474,
+   "sha256": "1ae9e85c9a46efa5ead2ef70527999854c155132ce1d5e1ef90d56e9b286f1f8"
+  },
+  {
+   "file": "corpus_mgnify_genus_relab.parquet",
+   "size_bytes": 53243430,
+   "sha256": "87c6466a0b0f7cfcf0f354c75427ad51e13f30e375aacc3751f56af9d6886751"
+  },
+  {
+   "file": "mgnify_full_metadata.csv",
+   "size_bytes": 11227665,
+   "sha256": "b1a2bfd380fc9f9e1661442f634a21202e2ef358b6995b354be0001ec470927b"
+  },
+  {
+   "file": "mgnify_full_download_manifest.csv",
+   "size_bytes": 73205,
+   "sha256": "533019df5cf46d37553088e37627121726c0030c259214e8aa8f63f7c6902860"
+  }
+ ],
+ "known_limitations": [
+  "16S and shotgun kept as SEPARATE feature spaces; modality is metadata.",
+  "MGnify_full uses SILVA lineages; AGP uses Greengenes. Merged 16S genus table harmonizes on terminal g__ token (514/683 existing genera shared with MGnify vocabulary).",
+  "16S tier carries NO disease labels (health_status='unlabeled'); disease labels exist only on the shotgun tier.",
+  "62 of 770 MGnify studies had no combined SSU taxonomy table (fungal ITS-only or shotgun); logged in the download manifest.",
+  "Disease/neurodegenerative cohorts (AD DUA-gated, PD) remain OUT of scope \u2014 this is a pretraining corpus."
+ ]
+}

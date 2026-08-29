@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Cite — Corpusome</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<main class="main">
+  <div class="container">
+
+    <div class="page-header">
+      <div class="page-title">How to Cite</div>
+      <div class="page-subtitle">
+        Please cite Corpusome in your publications if it contributed to your research.
+      </div>
+    </div>
+
+    <!-- ── Dataset DOI ─────────────────────────────────────────────── -->
+    <div class="section">
+      <div class="section-title">Dataset DOI</div>
+      <div class="doi-box">
+        <span>🔗</span>
+        <span><strong>Zenodo DOI:</strong></span>
+        <a href="https://doi.org/10.5281/zenodo.XXXXXXX" target="_blank" rel="noopener">
+          https://doi.org/10.5281/zenodo.XXXXXXX
+        </a>
+        <span style="font-size:0.75rem;color:var(--text-muted)">(placeholder — update before release)</span>
+      </div>
+    </div>
+
+    <!-- ── APA Citation ────────────────────────────────────────────── -->
+    <div class="section">
+      <div class="section-title">APA Citation (v1.1)</div>
+      <div style="position:relative">
+        <div class="cite-block" id="cite-apa">Hao, X., &amp; [Co-authors]. (2025). <em>Corpusome v1.1: A harmonized cross-body-site human microbiome corpus for representation learning</em> (Version 1.1) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.XXXXXXX</div>
+        <button class="copy-btn" onclick="copyBlock('cite-apa', this)">Copy</button>
+      </div>
+
+      <div class="section-title">APA — Data Descriptor Paper</div>
+      <div style="position:relative">
+        <div class="cite-block" id="cite-apa-paper">Hao, X., &amp; [Co-authors]. (2025). Corpusome: A cross-body-site human microbiome corpus for microbial foundation model pretraining. <em>Scientific Data</em>. https://doi.org/10.XXXX/XXXXXX</div>
+        <button class="copy-btn" onclick="copyBlock('cite-apa-paper', this)">Copy</button>
+      </div>
+    </div>
+
+    <!-- ── BibTeX ──────────────────────────────────────────────────── -->
+    <div class="section">
+      <div class="section-title">BibTeX — Dataset</div>
+      <div style="position:relative">
+        <div class="cite-block" id="cite-bibtex-data">@dataset{hao2025corpusome,
+  author    = {Hao, Xuan and {[Co-authors]}},
+  title     = {{Corpusome v1.1}: A Harmonized Cross-Body-Site Human Microbiome
+               Corpus for Representation Learning},
+  year      = {2025},
+  publisher = {Zenodo},
+  version   = {1.1},
+  doi       = {10.5281/zenodo.XXXXXXX},
+  url       = {https://doi.org/10.5281/zenodo.XXXXXXX},
+  note      = {187,546 samples · 6 body sites · 16S + shotgun modalities}
+}</div>
+        <button class="copy-btn" onclick="copyBlock('cite-bibtex-data', this)">Copy</button>
+      </div>
+
+      <div class="section-title">BibTeX — Data Descriptor Paper</div>
+      <div style="position:relative">
+        <div class="cite-block" id="cite-bibtex-paper">@article{hao2025corpusome_paper,
+  author  = {Hao, Xuan and {[Co-authors]}},
+  title   = {Corpusome: A Cross-Body-Site Human Microbiome Corpus for
+             Microbial Foundation Model Pretraining},
+  journal = {Scientific Data},
+  year    = {2025},
+  doi     = {10.XXXX/XXXXXX},
+  url     = {https://doi.org/10.XXXX/XXXXXX}
+}</div>
+        <button class="copy-btn" onclick="copyBlock('cite-bibtex-paper', this)">Copy</button>
+      </div>
+    </div>
+
+    <!-- ── Upstream data sources ───────────────────────────────────── -->
+    <div class="section">
+      <div class="section-title">Also Cite Upstream Data Sources</div>
+      <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem">
+        Corpusome integrates data from three primary sources. Please also cite these
+        when using data that originates from them.
+      </p>
+
+      <div class="schema-wrapper">
+        <table class="schema-table">
+          <thead>
+            <tr><th>Source</th><th>Citation</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge badge-curatedMetagenomicData">cMD</span></td>
+              <td style="font-size:0.82rem">
+                Pasolli, E., et al. (2017). Accessible, curated metagenomic data through ExperimentHub.
+                <em>Nature Methods</em>, 14, 1023–1024.
+                <a href="https://doi.org/10.1038/nmeth.4468" target="_blank">10.1038/nmeth.4468</a>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-AGP">AGP</span></td>
+              <td style="font-size:0.82rem">
+                McDonald, D., et al. (2018). American Gut: an open platform for citizen science microbiome research.
+                <em>mSystems</em>, 3(3), e00031-18.
+                <a href="https://doi.org/10.1128/mSystems.00031-18" target="_blank">10.1128/mSystems.00031-18</a>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-MGnify_full">MGnify</span></td>
+              <td style="font-size:0.82rem">
+                Mitchell, A. L., et al. (2020). MGnify: the microbiome sequence data analysis resource in 2020.
+                <em>Nucleic Acids Research</em>, 48(D1), D570–D578.
+                <a href="https://doi.org/10.1093/nar/gkz1035" target="_blank">10.1093/nar/gkz1035</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── License ────────────────────────────────────────────────── -->
+    <div class="section">
+      <div class="section-title">License</div>
+      <div class="info-box">
+        Corpusome v1.1 is released under
+        <strong><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></strong>
+        (Creative Commons Attribution 4.0 International).
+        You are free to share and adapt the material for any purpose, provided you give
+        appropriate credit. Data derived from original studies may carry additional
+        data-use restrictions — consult the upstream sources' terms.
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script src="js/main.js"></script>
+<script>
+function copyBlock(id, btn) {
+  const text = document.getElementById(id).textContent.trim();
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  }).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta);
+    btn.textContent = 'Copied!'; btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
+</body>
+</html>

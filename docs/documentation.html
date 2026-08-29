@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentation — Corpusome</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<main class="main">
+  <div class="container">
+
+    <div class="page-header">
+      <div class="page-title">Documentation &amp; Data Schema</div>
+      <div class="page-subtitle">
+        Field definitions, data sources, pipeline versions, and usage notes for the Corpusome v1.1 release.
+      </div>
+    </div>
+
+    <!-- Version banner -->
+    <div class="info-box">
+      <strong>Current release: v1.1</strong> — expanded from v1.0 (30,680 samples) by pulling the full
+      EBI MGnify human body-site catalogue (708 studies, 156,866 samples).
+      Pipeline: MetaPhlAn3 + HUMAnN3 (shotgun); Greengenes 13_8 / SILVA SSU (16S).
+    </div>
+
+    <!-- ── Metadata fields ─────────────────────────────────────────── -->
+    <div class="section">
+      <div class="section-title">Corpus Metadata Schema</div>
+      <p class="section-subtitle">
+        Primary file: <code>data/metadata/corpus_metadata_catalog_expanded.{parquet,csv}</code>
+        — 187,546 rows × 15 columns.
+      </p>
+      <div class="schema-wrapper">
+        <table class="schema-table">
+          <thead>
+            <tr>
+              <th>Field</th>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>sample_uid</code></td>
+              <td><span class="type-tag">string</span></td>
+              <td>Unique sample identifier. Format: <code>study:sample_id</code> for cMD; raw run accession for MGnify.</td>
+              <td><code>AsnicarF_2017:MV_FEI1_t1Q14</code></td>
+            </tr>
+            <tr>
+              <td><code>source</code></td>
+              <td><span class="type-tag">string</span></td>
+              <td>Contributing database.
+                <code>MGnify_full</code> = full EBI catalogue pull;
+                <code>curatedMetagenomicData</code> = cMD v3.18;
+                <code>AGP</code> = American Gut Project;
+                <code>MGnify</code> = earlier selective MGnify pull.
+              </td>
+              <td><code>curatedMetagenomicData</code></td>
+            </tr>
+            <tr>
+              <td><code>study</code></td>
+              <td><span class="type-tag">string</span></td>
+              <td>Study or project identifier. For cMD: author+year (e.g. <code>AsnicarF_2017</code>); for MGnify: EBI project accession (e.g. <code>MGYS00001234</code>); for AGP: <code>Qiita_10317</code>.</td>
+              <td><code>MGYS00002925</code></td>
+            </tr>
+            <tr>
+              <td><code>modality</code></td>
+              <td><span class="type-tag">string</span></td>
+              <td>Sequencing modality. <code>16S</code> = amplicon 16S rRNA; <code>shotgun</code> = whole-genome shotgun. <strong>Do not merge these tiers</strong> — different profilers, incompatible feature spaces.</td>
+              <td><code>16S</code></td>
+            </tr>
+            <tr>
+              <td><code>body_site</code></td>
+              <td><span class="type-tag">string</span></td>
+              <td>Harmonized anatomical body site. Values: <code>stool</code>, <code>oral</code>, <code>skin</code>, <code>respiratory</code>, <code>urogenital</code>, <code>milk</code>. Mapped from free-text EBI body-site annotations.</td>
+              <td><code>stool</code></td>
+            </tr>
+            <tr>
+              <td><code>region</code></td>
+              <td><span class="type-tag">string</span></td>
+              <td>16S hypervariable region amplified. Empty for shotgun samples. Relevant for downstream analysis (e.g. <code>V4</code> for AGP, various for MGnify).</td>
+              <td><code>V4</code></td>
+            </tr>
+            <tr>
+              <td><code>pipeline</code></td>
+              <td><span class="type-tag">string</span></td>
+              <td>Bioinformatics pipeline string (verbatim from source). cMD: <code>MetaPhlAn3 + HUMAnN (cMD 3.18 / 2021-10-14 snapshot)</code>; AGP: <code>Greengenes 13_8 closed-ref (deblur precomputed round 1-21)</code>.</td>
+              <td><code>MetaPhlAn3 + HUMAnN …</code></td>
+            </tr>
+            <tr>
+              <td><code>host_age</code></td>
+              <td><span class="type-tag">float</span></td>
+              <td>Host age in years at sampling. May be <code>NaN</code> when not provided. Range: 0–101 years in AGP; most cMD studies have age.</td>
+              <td><code>32.0</code></td>
+            </tr>
+            <tr>
+              <td><code>host_sex</code></td>
+              <td><span class="type-tag">string</span></td>
+              <td>Biological sex. Values: <code>male</code>, <code>female</code>, or blank. For AGP: derived from questionnaire; for cMD: from original study metadata.</td>
+              <td><code>female</code></td>
+            </tr>
+            <tr>
+              <td><code>subject_id</code></td>
+              <td><span class="type-tag">string</span></td>
+              <td>De-identified subject identifier. Long hashed IDs in AGP; short human-readable codes in cMD. Use for longitudinal linking within a study.</td>
+              <td><code>MV_FEI1</code></td>
+            </tr>
+            <tr>
+              <td><code>country</code></td>
+              <td><span class="type-tag">string</span></td>
+              <td>ISO 3166-1 alpha-3 country code of sample collection. Populated only for cMD shotgun tier (42 countries). Empty for MGnify and AGP in this release.</td>
+              <td><code>USA</code></td>
+            </tr>
+            <tr>
+              <td><code>sequencing_platform</code></td>
+              <td><span class="type-tag">string</span></td>
+              <td>Sequencing instrument. Examples: <code>IlluminaHiSeq</code>, <code>IlluminaNovaSeq</code>, <code>IlluminaMiSeq</code>, <code>IonProton</code>. Relevant as a batch effect co-variate.</td>
+              <td><code>IlluminaHiSeq</code></td>
+            </tr>
+            <tr>
+              <td><code>disease</code></td>
+              <td><span class="type-tag">string</span></td>
+              <td>Disease/diagnosis label from original study (shotgun tier only). 141 distinct conditions. <code>healthy</code> for controls.</td>
+              <td><code>IBD</code></td>
+            </tr>
+            <tr>
+              <td><code>study_condition</code></td>
+              <td><span class="type-tag">string</span></td>
+              <td>Study arm label, e.g. <code>control</code>, <code>case</code>, <code>treatment</code>. More granular than <code>health_status</code>.</td>
+              <td><code>control</code></td>
+            </tr>
+            <tr>
+              <td><code>health_status</code></td>
+              <td><span class="type-tag">string</span></td>
+              <td>Curated health status. Values: <code>healthy</code> (14,566), <code>diseased</code> (8,022), <code>unlabeled</code> (164,958 — entire 16S tier). Use with caution for pretraining; do not filter out unlabeled samples.</td>
+              <td><code>healthy</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── Taxonomy / Feature tables ───────────────────────────────── -->
+    <div class="section">
+      <div class="section-title">Taxonomy &amp; Feature Tables</div>
+      <div class="schema-wrapper">
+        <table class="schema-table">
+          <thead>
+            <tr>
+              <th>File</th>
+              <th>Shape</th>
+              <th>Content</th>
+              <th>Taxonomy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>data/16s/corpus_16s_genus_relab_expanded.parquet</code></td>
+              <td>164,958 × 978</td>
+              <td>16S genus relative abundances (harmonized). Row index = <code>sample_id</code>; columns = genus tokens like <code>g__Bacteroides</code>.</td>
+              <td>Greengenes 13_8 + SILVA SSU, harmonized at terminal genus</td>
+            </tr>
+            <tr>
+              <td><code>data/16s_mgnify_full/corpus_mgnify_phylum_relab.parquet</code></td>
+              <td>157,905 × 62</td>
+              <td>Per-phylum relative abundances (MGnify full pull only).</td>
+              <td>SILVA SSU r138</td>
+            </tr>
+            <tr>
+              <td><code>data/16s_mgnify_full/corpus_mgnify_genus_relab.parquet</code></td>
+              <td>157,905 × 809</td>
+              <td>Per-genus relative abundances (MGnify full pull only, SILVA labels).</td>
+              <td>SILVA SSU r138</td>
+            </tr>
+            <tr>
+              <td><code>data/shotgun/corpus_shotgun_species_relab.parquet</code></td>
+              <td>22,583 × 714</td>
+              <td>Shotgun species relative abundances (MetaPhlAn3). Row index = <code>sample_uid</code>.</td>
+              <td>MetaPhlAn3 (mpa_vJan21_CHOCOPhlAnSGB_202103)</td>
+            </tr>
+            <tr>
+              <td><code>data/shotgun/corpus_shotgun_pathway_relab.parquet</code></td>
+              <td>22,512 × 511</td>
+              <td>HUMAnN3 pathway relative abundances (MetaCyc). Not all samples have pathway data.</td>
+              <td>HUMAnN3 + MetaCyc</td>
+            </tr>
+            <tr>
+              <td><code>data/multilevel/shotgun/</code></td>
+              <td>—</td>
+              <td>Shotgun per-rank tables (phylum, class, order, family, genus) derived from the species table by collapsing MetaPhlAn3 lineages.</td>
+              <td>MetaPhlAn3</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── Processing pipeline ─────────────────────────────────────── -->
+    <div class="section">
+      <div class="section-title">Processing Pipeline (v1.1)</div>
+      <p class="section-subtitle">Executed via <code>pipeline/run.sh</code>. Numbered scripts in <code>pipeline/</code>.</p>
+
+      <div class="pipeline-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h4>Data Acquisition</h4>
+          <p>
+            curatedMetagenomicData v3.18 (2023 snapshot) via R package;
+            American Gut Project (Qiita study 10317) via Qiita public API;
+            EBI MGnify full human body-site catalogue via SSU taxonomy tables API
+            (<code>mgnify_full_download_manifest.csv</code> records per-study provenance).
+          </p>
+        </div>
+      </div>
+
+      <div class="pipeline-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h4>16S Harmonization</h4>
+          <p>
+            Terminal genus tokens extracted from Greengenes 13_8 (AGP) and SILVA SSU r138 (MGnify)
+            lineage strings. Tokens prefixed <code>g__</code>; genus-level columns retained only
+            if present in ≥10 samples corpus-wide. Final vocabulary: 977 genus tokens.
+          </p>
+        </div>
+      </div>
+
+      <div class="pipeline-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h4>Shotgun Profiling (cMD tier)</h4>
+          <p>
+            MetaPhlAn3 (mpa_vJan21_CHOCOPhlAnSGB_202103) species-level relative abundances;
+            HUMAnN3 (v3.0) pathway abundances (MetaCyc). Source: curatedMetagenomicData
+            3.18 / 2021-10-14 snapshot. Not reprocessed from raw reads in this release.
+          </p>
+        </div>
+      </div>
+
+      <div class="pipeline-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h4>Metadata Harmonization</h4>
+          <p>
+            Body-site labels mapped to controlled vocabulary (stool / oral / skin /
+            respiratory / urogenital / milk) from free-text EBI environment biome annotations.
+            Health status unified across <code>disease</code> and <code>study_condition</code>
+            fields to <code>health_status ∈ {healthy, diseased, unlabeled}</code>.
+          </p>
+        </div>
+      </div>
+
+      <div class="pipeline-step">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <h4>Quality Checks</h4>
+          <p>
+            Duplicate <code>sample_uid</code> check (0 duplicates);
+            relative abundance sum check (all rows sum to ≤1.0 ± 1×10⁻⁶);
+            minimum read count filter (samples with &lt;10k reads excluded upstream by EBI/cMD).
+            See <code>documents/validation_summary.json</code>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Version history ─────────────────────────────────────────── -->
+    <div class="section">
+      <div class="section-title">Version History</div>
+      <div class="schema-wrapper">
+        <table class="schema-table">
+          <thead>
+            <tr><th>Version</th><th>Date</th><th>Samples</th><th>Key Changes</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>v1.1</strong> <span class="badge badge-healthy">current</span></td>
+              <td>2025</td>
+              <td>187,546</td>
+              <td>Added full EBI MGnify human body-site catalogue pull (156,866 samples). Per-rank tables at phylum–genus. All non-stool body sites grew by 1–2 orders of magnitude.</td>
+            </tr>
+            <tr>
+              <td>v1.0</td>
+              <td>2024</td>
+              <td>30,680</td>
+              <td>Initial release. curatedMetagenomicData + American Gut Project + selective MGnify pull. Shotgun tier (22,588) + preliminary 16S (8,092).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>

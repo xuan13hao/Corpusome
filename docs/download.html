@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download — Corpusome</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<main class="main">
+  <div class="container">
+
+    <div class="page-header">
+      <div class="page-title">Download</div>
+      <div class="page-subtitle">
+        All Corpusome v1.1 files are available on Zenodo under CC BY 4.0.
+        The full dataset is ~4 GB compressed; individual tier files are listed below.
+      </div>
+    </div>
+
+    <!-- DOI -->
+    <div class="info-box" style="margin-bottom:1.5rem">
+      <strong>Zenodo DOI (placeholder — update before release):</strong><br>
+      <a href="https://doi.org/10.5281/zenodo.XXXXXXX" target="_blank" rel="noopener">
+        https://doi.org/10.5281/zenodo.XXXXXXX
+      </a>
+      &nbsp;—&nbsp; versioned, citable, archived.
+    </div>
+
+    <!-- ── Metadata files ──────────────────────────────────────────── -->
+    <div class="section">
+      <div class="section-title">Metadata &amp; Index Files</div>
+      <div class="download-section">
+        <table class="download-table">
+          <thead>
+            <tr>
+              <th>File</th>
+              <th>Format</th>
+              <th>Size (approx)</th>
+              <th>Description</th>
+              <th>Download</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>corpus_metadata_catalog_expanded</td>
+              <td class="mono">.parquet / .csv</td>
+              <td>26 MB / 65 MB</td>
+              <td>Master sample catalogue — 187,546 × 15 columns. Includes body_site, modality, source, health_status, etc.</td>
+              <td>
+                <a class="download-btn" href="https://doi.org/10.5281/zenodo.XXXXXXX" target="_blank">Zenodo ↗</a>
+              </td>
+            </tr>
+            <tr>
+              <td>mgnify_human_bodysite_studies</td>
+              <td class="mono">.csv</td>
+              <td>180 KB</td>
+              <td>Index of 774 MGnify studies in the human body-site catalogue — study accessions, body sites, sample counts.</td>
+              <td>
+                <a class="download-btn" href="https://doi.org/10.5281/zenodo.XXXXXXX" target="_blank">Zenodo ↗</a>
+              </td>
+            </tr>
+            <tr>
+              <td>MANIFEST.csv</td>
+              <td class="mono">.csv</td>
+              <td>4 KB</td>
+              <td>File manifest with MD5 checksums and byte sizes for all release files.</td>
+              <td>
+                <a class="download-btn" href="../MANIFEST.csv">↓ CSV</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── 16S files ───────────────────────────────────────────────── -->
+    <div class="section">
+      <div class="section-title">16S Amplicon Tier (164,958 samples)</div>
+      <div class="download-section">
+        <table class="download-table">
+          <thead>
+            <tr>
+              <th>File</th>
+              <th>Format</th>
+              <th>Shape</th>
+              <th>Description</th>
+              <th>Download</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>corpus_16s_genus_relab_expanded</td>
+              <td class="mono">.parquet</td>
+              <td>164,958 × 978</td>
+              <td>Merged 16S genus relative abundances — harmonized terminal genus tokens (g__Bacteroides style). Primary pretraining feature matrix.</td>
+              <td><a class="download-btn" href="https://doi.org/10.5281/zenodo.XXXXXXX" target="_blank">Zenodo ↗</a></td>
+            </tr>
+            <tr>
+              <td>corpus_16s_metadata_expanded</td>
+              <td class="mono">.csv</td>
+              <td>164,958 × 10</td>
+              <td>16S-tier metadata subset (sample_id, source, study, modality, body_site, region, pipeline, host_age, host_sex, subject_id).</td>
+              <td><a class="download-btn" href="https://doi.org/10.5281/zenodo.XXXXXXX" target="_blank">Zenodo ↗</a></td>
+            </tr>
+            <tr>
+              <td>corpus_mgnify_phylum_relab</td>
+              <td class="mono">.parquet</td>
+              <td>157,905 × 62</td>
+              <td>MGnify-only phylum-level abundances (SILVA SSU r138 labels).</td>
+              <td><a class="download-btn" href="https://doi.org/10.5281/zenodo.XXXXXXX" target="_blank">Zenodo ↗</a></td>
+            </tr>
+            <tr>
+              <td>corpus_mgnify_class_relab</td>
+              <td class="mono">.parquet</td>
+              <td>157,905 × 101</td>
+              <td>MGnify-only class-level abundances.</td>
+              <td><a class="download-btn" href="https://doi.org/10.5281/zenodo.XXXXXXX" target="_blank">Zenodo ↗</a></td>
+            </tr>
+            <tr>
+              <td>corpus_mgnify_order_relab</td>
+              <td class="mono">.parquet</td>
+              <td>157,905 × 198</td>
+              <td>MGnify-only order-level abundances.</td>
+              <td><a class="download-btn" href="https://doi.org/10.5281/zenodo.XXXXXXX" target="_blank">Zenodo ↗</a></td>
+            </tr>
+            <tr>
+              <td>corpus_mgnify_family_relab</td>
+              <td class="mono">.parquet</td>
+              <td>157,905 × 341</td>
+              <td>MGnify-only family-level abundances.</td>
+              <td><a class="download-btn" href="https://doi.org/10.5281/zenodo.XXXXXXX" target="_blank">Zenodo ↗</a></td>
+            </tr>
+            <tr>
+              <td>corpus_mgnify_genus_relab</td>
+              <td class="mono">.parquet</td>
+              <td>157,905 × 809</td>
+              <td>MGnify-only genus-level abundances (SILVA labels — not harmonized with AGP).</td>
+              <td><a class="download-btn" href="https://doi.org/10.5281/zenodo.XXXXXXX" target="_blank">Zenodo ↗</a></td>
+            </tr>
+            <tr>
+              <td>mgnify_full_metadata</td>
+              <td class="mono">.csv</td>
+              <td>156,866 × 6</td>
+              <td>MGnify full pull metadata (sample_id, study, body_site, host_age, host_sex, subject_id).</td>
+              <td><a class="download-btn" href="https://doi.org/10.5281/zenodo.XXXXXXX" target="_blank">Zenodo ↗</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── Shotgun files ───────────────────────────────────────────── -->
+    <div class="section">
+      <div class="section-title">Shotgun Metagenomics Tier (22,588 samples — curatedMetagenomicData)</div>
+      <div class="download-section">
+        <table class="download-table">
+          <thead>
+            <tr>
+              <th>File</th>
+              <th>Format</th>
+              <th>Shape</th>
+              <th>Description</th>
+              <th>Download</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>corpus_shotgun_species_relab</td>
+              <td class="mono">.parquet</td>
+              <td>22,583 × 714</td>
+              <td>MetaPhlAn3 species relative abundances. Primary shotgun feature matrix. Row index = sample_uid.</td>
+              <td><a class="download-btn" href="https://doi.org/10.5281/zenodo.XXXXXXX" target="_blank">Zenodo ↗</a></td>
+            </tr>
+            <tr>
+              <td>corpus_shotgun_pathway_relab</td>
+              <td class="mono">.parquet</td>
+              <td>22,512 × 511</td>
+              <td>HUMAnN3 pathway relative abundances (MetaCyc). Not all samples have pathway data.</td>
+              <td><a class="download-btn" href="https://doi.org/10.5281/zenodo.XXXXXXX" target="_blank">Zenodo ↗</a></td>
+            </tr>
+            <tr>
+              <td>corpus_shotgun_metadata</td>
+              <td class="mono">.csv</td>
+              <td>22,588 × 14</td>
+              <td>Shotgun-tier metadata including disease, country, platform, study_condition.</td>
+              <td><a class="download-btn" href="https://doi.org/10.5281/zenodo.XXXXXXX" target="_blank">Zenodo ↗</a></td>
+            </tr>
+            <tr>
+              <td>multilevel/shotgun/ (5 files)</td>
+              <td class="mono">.parquet</td>
+              <td>~22,500 × 20–200</td>
+              <td>Per-rank tables (phylum, class, order, family, genus) derived from MetaPhlAn3 lineages.</td>
+              <td><a class="download-btn" href="https://doi.org/10.5281/zenodo.XXXXXXX" target="_blank">Zenodo ↗</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── How to load ─────────────────────────────────────────────── -->
+    <div class="section">
+      <div class="section-title">Quick Start (Python)</div>
+      <div class="cite-block" style="margin:0">import pandas as pd
+
+# Load 16S genus table (primary pretraining feature matrix)
+X_16s = pd.read_parquet("data/16s/corpus_16s_genus_relab_expanded.parquet") \
+          .set_index("sample_id")   # 164,958 × 977
+
+# Load shotgun species table
+X_shg = pd.read_parquet("data/shotgun/corpus_shotgun_species_relab.parquet") \
+          .set_index("sample_uid")  # 22,583 × 713
+
+# Load master metadata
+meta = pd.read_parquet("data/metadata/corpus_metadata_catalog_expanded.parquet") \
+         .set_index("sample_uid")  # 187,546 × 15
+
+# Always split by modality before downstream analysis!
+meta_16s = meta[meta.modality == "16S"]
+meta_shg = meta[meta.modality == "shotgun"]</div>
+    </div>
+
+    <!-- ── System requirements ─────────────────────────────────────── -->
+    <div class="section">
+      <div class="section-title">System Requirements</div>
+      <div class="schema-wrapper">
+        <table class="schema-table">
+          <thead>
+            <tr><th>File set</th><th>RAM needed</th><th>Disk (compressed)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Metadata only</td><td>~500 MB</td><td>~90 MB</td></tr>
+            <tr><td>16S genus table (164k × 977)</td><td>~8 GB</td><td>~1.2 GB</td></tr>
+            <tr><td>Shotgun species table (22k × 713)</td><td>~1.5 GB</td><td>~200 MB</td></tr>
+            <tr><td>Full corpus (all tables)</td><td>~32 GB</td><td>~4 GB</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:0.82rem;color:var(--text-muted)">
+        For low-memory environments, use <code>pd.read_parquet(..., columns=[...])</code>
+        to load only the columns you need, or process in chunks.
+        All parquet files use snappy compression and column-oriented storage.
+      </p>
+    </div>
+
+  </div>
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>

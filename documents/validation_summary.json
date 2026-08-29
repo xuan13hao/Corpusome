@@ -1,0 +1,45 @@
+{
+ "n_samples_total": 187546,
+ "by_modality": {
+  "16S": 164958,
+  "shotgun": 22588
+ },
+ "by_source": {
+  "MGnify_full": 156866,
+  "curatedMetagenomicData": 22588,
+  "AGP": 6716,
+  "MGnify": 1376
+ },
+ "by_body_site": {
+  "stool": 95384,
+  "respiratory": 40833,
+  "oral": 24463,
+  "skin": 14635,
+  "urogenital": 12223,
+  "milk": 8
+ },
+ "health_status": {
+  "unlabeled": 164958,
+  "healthy": 14566,
+  "diseased": 8022
+ },
+ "dup_sample_uid": 0,
+ "body_site_x_modality": {
+  "16S": {
+   "milk": 0,
+   "oral": 23606,
+   "respiratory": 40740,
+   "skin": 14131,
+   "stool": 74354,
+   "urogenital": 12127
+  },
+  "shotgun": {
+   "milk": 8,
+   "oral": 857,
+   "respiratory": 93,
+   "skin": 504,
+   "stool": 21030,
+   "urogenital": 96
+  }
+ }
+}

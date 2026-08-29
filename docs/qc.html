@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quality Control — Corpusome</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<main class="main">
+  <div class="container">
+
+    <div class="page-header">
+      <div class="page-title">Quality Control</div>
+      <div class="page-subtitle">
+        Distributions of key QC metrics across body sites and modalities.
+        Metrics are derived from a stratified sample of 2,000 samples;
+        synthetic read-depth and alpha-diversity values are illustrated for demonstration —
+        replace with real per-sample metrics after computing from the parquet files.
+      </div>
+    </div>
+
+    <div class="info-box">
+      <strong>How to compute real QC metrics:</strong>
+      Shannon diversity from the genus/species relab parquet files using
+      <code>scipy.stats.entropy</code>; read depth from sequencing run metadata;
+      unclassified fraction from the <code>UNCLASSIFIED</code> column in MetaPhlAn output.
+    </div>
+
+    <!-- Charts row 1 -->
+    <div class="charts-grid">
+      <div class="chart-card">
+        <div class="chart-title">Alpha Diversity (Shannon H′) by Body Site</div>
+        <p class="chart-subtitle">Violin + box — urogenital shows widest range due to Lactobacillus dominance vs. dysbiosis states</p>
+        <div class="chart-box-tall" id="chart-alpha"></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Read Depth Distribution by Sequencing Modality</div>
+        <p class="chart-subtitle">Histogram (overlapping) — NovaSeq shotgun samples are generally deeper</p>
+        <div class="chart-box-tall" id="chart-depth"></div>
+      </div>
+    </div>
+
+    <!-- Charts row 2 -->
+    <div class="charts-grid">
+      <div class="chart-card">
+        <div class="chart-title">Detected Taxa per Sample by Body Site</div>
+        <p class="chart-subtitle">Box plot with outliers — stool has highest alpha diversity; milk has fewest taxa</p>
+        <div class="chart-box-tall" id="chart-taxa"></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Unclassified Read Fraction</div>
+        <p class="chart-subtitle">Histogram across all samples — values >40% may indicate host contamination</p>
+        <div class="chart-box-tall" id="chart-unclass"></div>
+      </div>
+    </div>
+
+    <!-- Summary stats table -->
+    <div class="section">
+      <div class="section-title">QC Summary by Body Site</div>
+      <div class="schema-wrapper">
+        <table class="schema-table">
+          <thead>
+            <tr>
+              <th>Body Site</th>
+              <th style="text-align:right">N samples</th>
+              <th style="text-align:right">Mean Shannon H′</th>
+              <th style="text-align:right">Median Shannon H′</th>
+              <th style="text-align:right">Mean Read Depth</th>
+              <th style="text-align:right">Mean Taxa/Sample</th>
+            </tr>
+          </thead>
+          <tbody id="qc-summary-tbody">
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:0.78rem;color:var(--text-muted);margin-top:-1rem">
+        Based on 2,000-sample stratified subset with synthetic QC values for illustration.
+      </p>
+    </div>
+
+  </div>
+</main>
+
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/qc.js"></script>
+</body>
+</html>

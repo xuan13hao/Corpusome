@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corpusome — Cross-Body-Site Human Microbiome Corpus</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<main class="main">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-title">Corpus<span class="accent">ome</span></div>
+    <p class="hero-subtitle">
+      A harmonized cross-body-site human microbiome corpus for representation learning —
+      187,546 samples across 6 body sites and 2 sequencing modalities, integrated from
+      MGnify, curatedMetagenomicData, and the American Gut Project.
+    </p>
+    <div class="hero-chips">
+      <span class="hero-chip">16S amplicon · 164,958 samples</span>
+      <span class="hero-chip">Shotgun metagenomics · 22,588 samples</span>
+      <span class="hero-chip">775 studies · 42 countries</span>
+      <span class="hero-chip">Foundation model pretraining</span>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- Stat cards -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-value" id="stat-samples">—</div>
+        <div class="stat-label">Total Samples</div>
+        <div class="stat-sub">16S + Shotgun combined</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="stat-studies">—</div>
+        <div class="stat-label">Studies / Projects</div>
+        <div class="stat-sub">MGnify, cMD, AGP</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="stat-sites">—</div>
+        <div class="stat-label">Body Sites</div>
+        <div class="stat-sub">stool · oral · skin · respiratory · urogenital · milk</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="stat-countries">—</div>
+        <div class="stat-label">Countries</div>
+        <div class="stat-sub">Shotgun tier (cMD)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="stat-taxa-16s">—</div>
+        <div class="stat-label">16S Taxa Tokens</div>
+        <div class="stat-sub">Terminal genus, harmonized</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="stat-taxa-shg">—</div>
+        <div class="stat-label">Shotgun Species</div>
+        <div class="stat-sub">MetaPhlAn3 species table</div>
+      </div>
+    </div>
+
+    <!-- Summary table -->
+    <div class="section">
+      <div class="section-title">Corpus at a Glance</div>
+      <div style="overflow-x:auto">
+        <table class="schema-table" style="margin-bottom:0">
+          <thead>
+            <tr>
+              <th>Body site</th>
+              <th style="text-align:right">16S</th>
+              <th style="text-align:right">Shotgun</th>
+              <th style="text-align:right">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="badge badge-stool">stool</span></td><td style="text-align:right">74,354</td><td style="text-align:right">21,030</td><td style="text-align:right"><b>95,384</b></td></tr>
+            <tr><td><span class="badge badge-respiratory">respiratory</span></td><td style="text-align:right">40,740</td><td style="text-align:right">93</td><td style="text-align:right"><b>40,833</b></td></tr>
+            <tr><td><span class="badge badge-oral">oral</span></td><td style="text-align:right">23,606</td><td style="text-align:right">857</td><td style="text-align:right"><b>24,463</b></td></tr>
+            <tr><td><span class="badge badge-skin">skin</span></td><td style="text-align:right">14,131</td><td style="text-align:right">504</td><td style="text-align:right"><b>14,635</b></td></tr>
+            <tr><td><span class="badge badge-urogenital">urogenital</span></td><td style="text-align:right">12,127</td><td style="text-align:right">96</td><td style="text-align:right"><b>12,223</b></td></tr>
+            <tr><td><span class="badge badge-milk">milk</span></td><td style="text-align:right">—</td><td style="text-align:right">8</td><td style="text-align:right"><b>8</b></td></tr>
+            <tr style="font-weight:700">
+              <td>Total</td>
+              <td style="text-align:right">164,958</td>
+              <td style="text-align:right">22,588</td>
+              <td style="text-align:right">187,546</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="charts-grid">
+      <div class="chart-card">
+        <div class="chart-title">Samples by Body Site and Data Source</div>
+        <p class="chart-subtitle">Stacked by contributing database</p>
+        <div class="chart-box" id="chart-site-src"></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">16S vs Shotgun per Body Site</div>
+        <p class="chart-subtitle">Log scale — both modalities kept separate</p>
+        <div class="chart-box" id="chart-modality"></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Samples per Body Site (Total)</div>
+        <div class="chart-box" id="chart-bodysite"></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Health Status Breakdown</div>
+        <p class="chart-subtitle">Shotgun tier only — 16S tier is entirely unlabeled</p>
+        <div class="chart-box" id="chart-health"></div>
+      </div>
+    </div>
+
+    <!-- Info callout -->
+    <div class="info-box">
+      <strong>Note on taxonomic vocabularies:</strong>
+      The MGnify full pull uses SILVA lineages; AGP uses Greengenes 13_8.
+      The merged 16S genus table (<code>corpus_16s_genus_relab_expanded.parquet</code>)
+      harmonizes both on the terminal genus token (e.g. <code>g__Bacteroides</code>).
+      Do <em>not</em> merge the 16S and shotgun tiers naively — they use different profilers.
+      Use the <code>modality</code> column as a mandatory split key.
+    </div>
+
+    <!-- Quick links -->
+    <div class="section">
+      <div class="section-title">Quick Links</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.75rem">
+        <a href="browse.html" class="download-btn">Browse Samples</a>
+        <a href="qc.html" class="download-btn" style="background:var(--text-muted)">Quality Control</a>
+        <a href="batch.html" class="download-btn" style="background:var(--text-muted)">Batch Effects</a>
+        <a href="download.html" class="download-btn" style="background:var(--text-muted)">Download Data</a>
+        <a href="documentation.html" class="download-btn" style="background:var(--text-muted)">Documentation</a>
+        <a href="cite.html" class="download-btn" style="background:var(--text-muted)">How to Cite</a>
+      </div>
+    </div>
+
+  </div><!-- /container -->
+</main>
+
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/overview.js"></script>
+</body>
+</html>

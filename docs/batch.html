@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batch Effects — Corpusome</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<main class="main">
+  <div class="container">
+
+    <div class="page-header">
+      <div class="page-title">Batch Effects &amp; Ordination</div>
+      <div class="page-subtitle">
+        Interactive UMAP scatter of sample composition — toggle coloring by body site, data source,
+        or sequencing modality; compare uncorrected vs. batch-corrected projections.
+        Coordinates shown are synthetic illustrations; replace with real PCoA/UMAP computed from
+        the genus relab tables.
+      </div>
+    </div>
+
+    <div class="info-box">
+      <strong>These are synthetic coordinates for UI demonstration.</strong>
+      To generate real embeddings: compute Bray–Curtis PCoA or UMAP from
+      <code>corpus_16s_genus_relab_expanded.parquet</code>,
+      optionally after ComBat-seq or MMUPHin batch correction keyed on <code>source</code>.
+    </div>
+
+    <!-- Controls -->
+    <div class="controls-row" style="margin-bottom:1.25rem">
+      <span class="control-label">Color by:</span>
+      <div class="toggle-group">
+        <button class="toggle-btn color-btn active" data-col="body_site">Body Site</button>
+        <button class="toggle-btn color-btn" data-col="source">Data Source</button>
+        <button class="toggle-btn color-btn" data-col="modality">Modality</button>
+      </div>
+
+      <span class="control-label" style="margin-left:1rem">Coordinates:</span>
+      <div class="toggle-group">
+        <button class="toggle-btn coord-btn active" data-coord="pre">Before correction</button>
+        <button class="toggle-btn coord-btn" data-coord="post">After correction</button>
+      </div>
+    </div>
+
+    <!-- UMAP chart -->
+    <div class="chart-card" style="margin-bottom:1.5rem">
+      <div class="chart-box-wide" id="chart-umap" style="height:520px"></div>
+    </div>
+
+    <!-- Interpretation guide -->
+    <div class="section">
+      <div class="section-title">Interpretation Guide</div>
+      <div class="charts-grid" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+
+        <div class="chart-card">
+          <div class="chart-title">What to look for: Body Site</div>
+          <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.65">
+            In a well-structured ordination, stool/gut samples should form a tight cluster
+            distinct from oral, skin, and urogenital. Overlap between stool and oral may
+            indicate taxonomic cross-contamination or a mouth-gut axis signal.
+          </p>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-title">What to look for: Data Source</div>
+          <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.65">
+            <strong>Before correction</strong> — clusters often separate by source (MGnify_full,
+            cMD, AGP) due to sequencing platform differences, amplicon regions (V4 vs other),
+            and bioinformatic pipelines.<br>
+            <strong>After correction</strong> — source-driven separation should decrease
+            while body-site clustering is preserved.
+          </p>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-title">Batch Correction Methods</div>
+          <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.65">
+            Recommended approaches for this corpus:
+            <strong>MMUPHin</strong> (meta-analysis MaAsLin2 framework),
+            <strong>ComBat-seq</strong> (count-based negative-binomial),
+            or <strong>ConQuR</strong> (conditional quantile regression).
+            Key batch variable: <code>source</code>; optional co-variate: <code>sequencing_platform</code>.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/batch.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+[
+  {
+    "modality": "16S",
+    "source": "AGP",
+    "body_site": "oral",
+    "n_samples": 472
+  },
+  {
+    "modality": "16S",
+    "source": "AGP",
+    "body_site": "skin",
+    "n_samples": 346
+  },
+  {
+    "modality": "16S",
+    "source": "AGP",
+    "body_site": "stool",
+    "n_samples": 5883
+  },
+  {
+    "modality": "16S",
+    "source": "AGP",
+    "body_site": "urogenital",
+    "n_samples": 15
+  },
+  {
+    "modality": "16S",
+    "source": "MGnify",
+    "body_site": "oral",
+    "n_samples": 366
+  },
+  {
+    "modality": "16S",
+    "source": "MGnify",
+    "body_site": "respiratory",
+    "n_samples": 242
+  },
+  {
+    "modality": "16S",
+    "source": "MGnify",
+    "body_site": "skin",
+    "n_samples": 396
+  },
+  {
+    "modality": "16S",
+    "source": "MGnify",
+    "body_site": "urogenital",
+    "n_samples": 372
+  },
+  {
+    "modality": "16S",
+    "source": "MGnify_full",
+    "body_site": "oral",
+    "n_samples": 22768
+  },
+  {
+    "modality": "16S",
+    "source": "MGnify_full",
+    "body_site": "respiratory",
+    "n_samples": 40498
+  },
+  {
+    "modality": "16S",
+    "source": "MGnify_full",
+    "body_site": "skin",
+    "n_samples": 13389
+  },
+  {
+    "modality": "16S",
+    "source": "MGnify_full",
+    "body_site": "stool",
+    "n_samples": 68471
+  },
+  {
+    "modality": "16S",
+    "source": "MGnify_full",
+    "body_site": "urogenital",
+    "n_samples": 11740
+  },
+  {
+    "modality": "shotgun",
+    "source": "curatedMetagenomicData",
+    "body_site": "milk",
+    "n_samples": 8
+  },
+  {
+    "modality": "shotgun",
+    "source": "curatedMetagenomicData",
+    "body_site": "oral",
+    "n_samples": 857
+  },
+  {
+    "modality": "shotgun",
+    "source": "curatedMetagenomicData",
+    "body_site": "respiratory",
+    "n_samples": 93
+  },
+  {
+    "modality": "shotgun",
+    "source": "curatedMetagenomicData",
+    "body_site": "skin",
+    "n_samples": 504
+  },
+  {
+    "modality": "shotgun",
+    "source": "curatedMetagenomicData",
+    "body_site": "stool",
+    "n_samples": 21030
+  },
+  {
+    "modality": "shotgun",
+    "source": "curatedMetagenomicData",
+    "body_site": "urogenital",
+    "n_samples": 96
+  }
+]

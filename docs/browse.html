@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Samples — Corpusome</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables@6.2.1/dist/css/tabulator_simple.min.css">
+</head>
+<body>
+
+<main class="main">
+  <div class="container">
+
+    <div class="page-header">
+      <div class="page-title">Browse Samples</div>
+      <div class="page-subtitle">
+        Searchable, filterable sample-level metadata table.
+        Showing a representative stratified subset of 5,000 samples from the full 187,546-sample corpus.
+        <a href="download.html">Download the full dataset.</a>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="filters-bar">
+      <div class="filter-group">
+        <label class="filter-label" for="filter-site">Body Site</label>
+        <select class="filter-select" id="filter-site">
+          <option value="">All sites</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="filter-modality">Modality</label>
+        <select class="filter-select" id="filter-modality">
+          <option value="">All modalities</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="filter-source">Source</label>
+        <select class="filter-select" id="filter-source">
+          <option value="">All sources</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="filter-health">Health Status</label>
+        <select class="filter-select" id="filter-health">
+          <option value="">All statuses</option>
+        </select>
+      </div>
+      <div class="filter-group" style="min-width:200px;flex:1">
+        <label class="filter-label" for="filter-search">Search</label>
+        <input class="filter-input" id="filter-search" type="text"
+               placeholder="sample ID, study, country, disease…">
+      </div>
+      <div class="filter-actions">
+        <button class="btn btn-primary" id="btn-filter">Filter</button>
+        <button class="btn btn-secondary" id="btn-reset">Reset</button>
+        <button class="btn btn-secondary" id="btn-export">Export CSV</button>
+      </div>
+    </div>
+
+    <!-- Table meta -->
+    <div class="table-meta">
+      Showing <strong id="count-shown">—</strong> of <strong id="count-total">—</strong> samples
+      (representative stratified subset &middot; columns are movable &middot; click headers to sort)
+    </div>
+
+    <!-- Tabulator table -->
+    <div id="sample-table"></div>
+
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@6.2.1/dist/js/tabulator.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/browse.js"></script>
+</body>
+</html>
