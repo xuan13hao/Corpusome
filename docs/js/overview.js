@@ -18,14 +18,15 @@ async function loadOverview() {
   const cfg = PLOTLY_CONFIG;
 
   /* ── Chart 1: Samples by body site × source (stacked bar) ─────── */
-  const sites  = ['stool', 'respiratory', 'oral', 'skin', 'urogenital'];
+  const sites  = ['stool', 'respiratory', 'oral', 'skin', 'urogenital', 'brain'];
   const bySrc  = {};
   breakdown.forEach(row => {
     if (!bySrc[row.source]) bySrc[row.source] = {};
     bySrc[row.source][row.body_site] = (bySrc[row.source][row.body_site] || 0) + row.n_samples;
   });
 
-  const srcOrder = ['MGnify_full', 'curatedMetagenomicData', 'AGP', 'MGnify'];
+  const srcOrder = ['MGnify_full', 'curatedMetagenomicData', 'AGP', 'MGnify',
+                    'Ferreiro2023', 'Brain_16S', 'TCGA_Poore2020', 'BALF_mNGS', 'Hartwig_Battaglia2024', 'MLRepo'];
   const srcTraces = srcOrder.map(src => ({
     name: src.replace('curatedMetagenomicData', 'cMD'),
     type: 'bar',

@@ -1,33 +1,40 @@
 {
-  "n_samples_total": 187546,
-  "n_studies": 775,
-  "n_body_sites": 6,
+  "n_samples_total": 190601,
+  "n_studies": 782,
+  "n_body_sites": 7,
   "n_countries": 42,
   "n_modalities": 2,
   "n_taxa_16s": 977,
   "n_taxa_shotgun": 713,
   "by_modality": {
-    "16S": 164958,
-    "shotgun": 22588
+    "16S": 165046,
+    "shotgun": 25555
   },
   "by_body_site": {
-    "stool": 95384,
-    "respiratory": 40833,
+    "stool": 95826,
+    "respiratory": 43358,
     "oral": 24463,
     "skin": 14635,
     "urogenital": 12223,
-    "milk": 8
+    "milk": 8,
+    "brain": 88
   },
   "by_source": {
     "MGnify_full": 156866,
     "curatedMetagenomicData": 22588,
     "AGP": 6716,
-    "MGnify": 1376
+    "MGnify": 1376,
+    "Ferreiro2023": 164,
+    "Brain_16S": 88,
+    "TCGA_Poore2020": 1549,
+    "BALF_mNGS": 400,
+    "Hartwig_Battaglia2024": 576,
+    "MLRepo": 278
   },
   "health_status": {
-    "healthy": 14566,
-    "diseased": 8022,
-    "unlabeled": 164958
+    "healthy": 15162,
+    "diseased": 10467,
+    "unlabeled": 164972
   },
   "body_site_x_modality": {
     "16S": {
@@ -36,11 +43,12 @@
       "oral": 23606,
       "skin": 14131,
       "urogenital": 12127,
-      "milk": 0
+      "milk": 0,
+      "brain": 88
     },
     "shotgun": {
-      "stool": 21030,
-      "respiratory": 93,
+      "stool": 21472,
+      "respiratory": 2618,
       "oral": 857,
       "skin": 504,
       "urogenital": 96,

@@ -10,12 +10,19 @@ const BODY_SITE_COLORS = {
   respiratory: '#0284c7',
   urogenital:  '#db2777',
   milk:        '#d97706',
+  brain:       '#92400e',
 };
 const SOURCE_COLORS = {
   MGnify_full:            '#1d4ed8',
   curatedMetagenomicData: '#7c3aed',
   AGP:                    '#059669',
   MGnify:                 '#d97706',
+  Ferreiro2023:           '#065f46',
+  Brain_16S:              '#92400e',
+  TCGA_Poore2020:         '#1e3a5f',
+  BALF_mNGS:              '#0369a1',
+  Hartwig_Battaglia2024:  '#4c1d95',
+  MLRepo:                 '#9f1239',
 };
 const MODALITY_COLORS = {
   '16S':    '#1d4ed8',
@@ -120,7 +127,7 @@ const NAV_LINKS = [
 
   document.body.insertAdjacentHTML('beforeend', `
     <footer class="footer">
-      Corpusome v1.1 &mdash; 187,546 human microbiome samples · 6 body sites · 775 studies &mdash;
+      Corpusome v1.2 &mdash; 190,601 human microbiome samples · 7 body sites · 782 studies &mdash;
       <a href="cite.html">How to Cite</a> &middot;
       <a href="download.html">Download</a> &middot;
       <a href="https://github.com/xuan13hao/Corpusome" target="_blank" rel="noopener">GitHub</a>

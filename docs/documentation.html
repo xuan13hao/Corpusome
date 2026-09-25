@@ -15,13 +15,13 @@
     <div class="page-header">
       <div class="page-title">Documentation &amp; Data Schema</div>
       <div class="page-subtitle">
-        Field definitions, data sources, pipeline versions, and usage notes for the Corpusome v1.1 release.
+        Field definitions, data sources, pipeline versions, and usage notes for the Corpusome v1.2 release.
       </div>
     </div>
 
     <!-- Version banner -->
     <div class="info-box">
-      <strong>Current release: v1.1</strong> — expanded from v1.0 (30,680 samples) by pulling the full
+      <strong>Current release: v1.2</strong> — expanded from v1.1 (187,546 samples) to include disease-specific cohorts. v1.1 expanded from v1.0 (30,680 samples) by pulling the full
       EBI MGnify human body-site catalogue (708 studies, 156,866 samples).
       Pipeline: MetaPhlAn3 + HUMAnN3 (shotgun); Greengenes 13_8 / SILVA SSU (16S).
     </div>
@@ -278,7 +278,13 @@
           </thead>
           <tbody>
             <tr>
-              <td><strong>v1.1</strong> <span class="badge badge-healthy">current</span></td>
+              <td><strong>v1.2</strong> <span class="badge badge-healthy">current</span></td>
+              <td>2026</td>
+              <td>190,601</td>
+              <td>Added 3,055 samples from 7 disease-specific cohorts: preclinical AD gut shotgun (Ferreiro 2023, n=164), AD brain tissue 16S (n=88), lung cancer TCGA/Poore2020 (n=1,549), BALF mNGS lung cancer vs. infection (n=400), Hartwig metastatic lung WGS (Battaglia 2024, n=576), T2D gut shotgun Qin2012 (n=134) and Karlsson2013 (n=144). Added brain as 7th body site.</td>
+            </tr>
+            <tr>
+              <td>v1.1</td>
               <td>2025</td>
               <td>187,546</td>
               <td>Added full EBI MGnify human body-site catalogue pull (156,866 samples). Per-rank tables at phylum–genus. All non-stool body sites grew by 1–2 orders of magnitude.</td>

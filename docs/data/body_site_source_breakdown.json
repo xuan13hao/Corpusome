@@ -1,114 +1,125 @@
 [
   {
-    "modality": "16S",
     "source": "AGP",
     "body_site": "oral",
     "n_samples": 472
   },
   {
-    "modality": "16S",
     "source": "AGP",
     "body_site": "skin",
     "n_samples": 346
   },
   {
-    "modality": "16S",
     "source": "AGP",
     "body_site": "stool",
     "n_samples": 5883
   },
   {
-    "modality": "16S",
     "source": "AGP",
     "body_site": "urogenital",
     "n_samples": 15
   },
   {
-    "modality": "16S",
+    "source": "BALF_mNGS",
+    "body_site": "respiratory",
+    "n_samples": 400
+  },
+  {
+    "source": "Brain_16S",
+    "body_site": "brain",
+    "n_samples": 88
+  },
+  {
+    "source": "Ferreiro2023",
+    "body_site": "stool",
+    "n_samples": 164
+  },
+  {
+    "source": "Hartwig_Battaglia2024",
+    "body_site": "respiratory",
+    "n_samples": 576
+  },
+  {
     "source": "MGnify",
     "body_site": "oral",
     "n_samples": 366
   },
   {
-    "modality": "16S",
     "source": "MGnify",
     "body_site": "respiratory",
     "n_samples": 242
   },
   {
-    "modality": "16S",
     "source": "MGnify",
     "body_site": "skin",
     "n_samples": 396
   },
   {
-    "modality": "16S",
     "source": "MGnify",
     "body_site": "urogenital",
     "n_samples": 372
   },
   {
-    "modality": "16S",
     "source": "MGnify_full",
     "body_site": "oral",
     "n_samples": 22768
   },
   {
-    "modality": "16S",
     "source": "MGnify_full",
     "body_site": "respiratory",
     "n_samples": 40498
   },
   {
-    "modality": "16S",
     "source": "MGnify_full",
     "body_site": "skin",
     "n_samples": 13389
   },
   {
-    "modality": "16S",
     "source": "MGnify_full",
     "body_site": "stool",
     "n_samples": 68471
   },
   {
-    "modality": "16S",
     "source": "MGnify_full",
     "body_site": "urogenital",
     "n_samples": 11740
   },
   {
-    "modality": "shotgun",
+    "source": "MLRepo",
+    "body_site": "stool",
+    "n_samples": 278
+  },
+  {
+    "source": "TCGA_Poore2020",
+    "body_site": "respiratory",
+    "n_samples": 1549
+  },
+  {
     "source": "curatedMetagenomicData",
     "body_site": "milk",
     "n_samples": 8
   },
   {
-    "modality": "shotgun",
     "source": "curatedMetagenomicData",
     "body_site": "oral",
     "n_samples": 857
   },
   {
-    "modality": "shotgun",
     "source": "curatedMetagenomicData",
     "body_site": "respiratory",
     "n_samples": 93
   },
   {
-    "modality": "shotgun",
     "source": "curatedMetagenomicData",
     "body_site": "skin",
     "n_samples": 504
   },
   {
-    "modality": "shotgun",
     "source": "curatedMetagenomicData",
     "body_site": "stool",
     "n_samples": 21030
   },
   {
-    "modality": "shotgun",
     "source": "curatedMetagenomicData",
     "body_site": "urogenital",
     "n_samples": 96

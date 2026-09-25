@@ -205,6 +205,13 @@ a:hover { color: var(--accent-2); text-decoration: underline; }
 .badge-respiratory           { background: #e0f2fe; color: #075985; }
 .badge-urogenital            { background: #fce7f3; color: #9d174d; }
 .badge-milk                  { background: #fef3c7; color: #92400e; }
+.badge-brain                 { background: #fde8d0; color: #92400e; }
+.badge-Ferreiro2023          { background: #d1fae5; color: #065f46; }
+.badge-Brain_16S             { background: #fde8d0; color: #92400e; }
+.badge-TCGA_Poore2020        { background: #dbeafe; color: #1e3a5f; }
+.badge-BALF_mNGS             { background: #e0f2fe; color: #0369a1; }
+.badge-Hartwig_Battaglia2024 { background: #ede9fe; color: #4c1d95; }
+.badge-MLRepo                { background: #ffe4e6; color: #9f1239; }
 .badge-shotgun               { background: #fee2e2; color: #991b1b; }
 .badge-healthy               { background: #d1fae5; color: #065f46; }
 .badge-diseased, .badge-disease { background: #fee2e2; color: #991b1b; }
@@ -221,6 +228,11 @@ a:hover { color: var(--accent-2); text-decoration: underline; }
   .badge-respiratory         { background: #0c4a6e; color: #7dd3fc; }
   .badge-urogenital          { background: #831843; color: #fbcfe8; }
   .badge-milk                { background: #78350f; color: #fde68a; }
+  .badge-brain               { background: #78350f; color: #fed7aa; }
+  .badge-TCGA_Poore2020      { background: #1e3a5f; color: #93c5fd; }
+  .badge-BALF_mNGS           { background: #0c4a6e; color: #7dd3fc; }
+  .badge-Hartwig_Battaglia2024 { background: #3b0764; color: #e9d5ff; }
+  .badge-MLRepo              { background: #881337; color: #fecdd3; }
   .badge-shotgun             { background: #7f1d1d; color: #fca5a5; }
   .badge-healthy             { background: #064e3b; color: #6ee7b7; }
   .badge-diseased, .badge-disease { background: #7f1d1d; color: #fca5a5; }

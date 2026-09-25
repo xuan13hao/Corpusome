@@ -7,7 +7,7 @@ async function loadQC() {
 
   const ld  = plotlyLayout();
   const cfg = PLOTLY_CONFIG;
-  const sites  = ['stool', 'oral', 'skin', 'respiratory', 'urogenital'];
+  const sites  = ['stool', 'oral', 'skin', 'respiratory', 'urogenital', 'brain'];
   const dark   = isDark();
 
   /* ── Chart 1: Alpha diversity (Shannon) by body site — violin ─── */

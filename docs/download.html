@@ -15,7 +15,7 @@
     <div class="page-header">
       <div class="page-title">Download</div>
       <div class="page-subtitle">
-        All Corpusome v1.1 files are available on Zenodo under CC BY 4.0.
+        All Corpusome v1.2 files are available on Zenodo under CC BY 4.0.
         The full dataset is ~4 GB compressed; individual tier files are listed below.
       </div>
     </div>
@@ -48,7 +48,7 @@
               <td>corpus_metadata_catalog_expanded</td>
               <td class="mono">.parquet / .csv</td>
               <td>26 MB / 65 MB</td>
-              <td>Master sample catalogue — 187,546 × 15 columns. Includes body_site, modality, source, health_status, etc.</td>
+              <td>Master sample catalogue — 190,601 × 15 columns (v1.2: +3,055 disease cohort samples). Includes body_site, modality, source, health_status, etc.</td>
               <td>
                 <a class="download-btn" href="https://doi.org/10.5281/zenodo.22150633" target="_blank">Zenodo ↗</a>
               </td>
@@ -215,7 +215,7 @@ X_shg = pd.read_parquet("data/shotgun/corpus_shotgun_species_relab.parquet") \
 
 # Load master metadata
 meta = pd.read_parquet("data/metadata/corpus_metadata_catalog_expanded.parquet") \
-         .set_index("sample_uid")  # 187,546 × 15
+         .set_index("sample_uid")  # 190,601 × 15
 
 # Always split by modality before downstream analysis!
 meta_16s = meta[meta.modality == "16S"]
