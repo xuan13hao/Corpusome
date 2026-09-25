@@ -114,7 +114,7 @@ const NAV_LINKS = [
 
   document.body.insertAdjacentHTML('afterbegin', `
     <nav class="nav">
-      <a class="nav-brand" href="index.html">Corpusome <span class="version">v1.1</span></a>
+      <a class="nav-brand" href="index.html">Corpusome <span class="version">v1.2</span></a>
       <div class="nav-links">${links(false)}</div>
       <button class="nav-hamburger" id="_nav_ham" aria-label="Toggle menu">&#9776;</button>
     </nav>
