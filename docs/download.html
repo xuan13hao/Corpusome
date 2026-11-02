@@ -15,8 +15,10 @@
     <div class="page-header">
       <div class="page-title">Download</div>
       <div class="page-subtitle">
-        All Corpusome v1.2 files are available on Zenodo under CC BY 4.0.
-        The full dataset is ~4 GB compressed; individual tier files are listed below.
+        All Corpusome v1.0 files are available on Zenodo under CC BY 4.0.
+        Total release size: <span id="dl-total-size">—</span> across <span id="dl-nfiles">—</span> files.
+        Every file below lists its exact shape, byte size, and SHA-256 checksum,
+        all computed from the release files by <code>scripts/build_site_stats.py</code>.
       </div>
     </div>
 
@@ -29,56 +31,13 @@
       &nbsp;—&nbsp; versioned, citable, archived.
     </div>
 
-    <!-- ── Metadata files ──────────────────────────────────────────── -->
+    <!-- ── Release files (generated from the real file catalog) ─────── -->
     <div class="section">
-      <div class="section-title">Metadata &amp; Index Files</div>
-      <div class="download-section">
-        <table class="download-table">
-          <thead>
-            <tr>
-              <th>File</th>
-              <th>Format</th>
-              <th>Size (approx)</th>
-              <th>Description</th>
-              <th>Download</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>corpus_metadata_catalog_expanded</td>
-              <td class="mono">.parquet / .csv</td>
-              <td>26 MB / 65 MB</td>
-              <td>Master sample catalogue — 190,601 × 15 columns (v1.2: +3,055 disease cohort samples). Includes body_site, modality, source, health_status, etc.</td>
-              <td>
-                <a class="download-btn" href="https://doi.org/10.5281/zenodo.22150633" target="_blank">Zenodo ↗</a>
-              </td>
-            </tr>
-            <tr>
-              <td>mgnify_human_bodysite_studies</td>
-              <td class="mono">.csv</td>
-              <td>180 KB</td>
-              <td>Index of 774 MGnify studies in the human body-site catalogue — study accessions, body sites, sample counts.</td>
-              <td>
-                <a class="download-btn" href="https://doi.org/10.5281/zenodo.22150633" target="_blank">Zenodo ↗</a>
-              </td>
-            </tr>
-            <tr>
-              <td>MANIFEST.csv</td>
-              <td class="mono">.csv</td>
-              <td>4 KB</td>
-              <td>File manifest with MD5 checksums and byte sizes for all release files.</td>
-              <td>
-                <a class="download-btn" href="../MANIFEST.csv">↓ CSV</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- ── 16S files ───────────────────────────────────────────────── -->
-    <div class="section">
-      <div class="section-title">16S Amplicon Tier (164,958 samples)</div>
+      <div class="section-title">Release Files</div>
+      <p class="section-subtitle">
+        Shape = rows × columns. Size and SHA-256 are the exact on-disk values.
+        <code>MANIFEST.csv</code> at the repository root carries the same checksums for all files.
+      </p>
       <div class="download-section">
         <table class="download-table">
           <thead>
@@ -86,116 +45,12 @@
               <th>File</th>
               <th>Format</th>
               <th>Shape</th>
-              <th>Description</th>
+              <th>Size</th>
+              <th>SHA-256</th>
               <th>Download</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>corpus_16s_genus_relab_expanded</td>
-              <td class="mono">.parquet</td>
-              <td>164,958 × 978</td>
-              <td>Merged 16S genus relative abundances — harmonized terminal genus tokens (g__Bacteroides style). Primary pretraining feature matrix.</td>
-              <td><a class="download-btn" href="https://doi.org/10.5281/zenodo.22150633" target="_blank">Zenodo ↗</a></td>
-            </tr>
-            <tr>
-              <td>corpus_16s_metadata_expanded</td>
-              <td class="mono">.csv</td>
-              <td>164,958 × 10</td>
-              <td>16S-tier metadata subset (sample_id, source, study, modality, body_site, region, pipeline, host_age, host_sex, subject_id).</td>
-              <td><a class="download-btn" href="https://doi.org/10.5281/zenodo.22150633" target="_blank">Zenodo ↗</a></td>
-            </tr>
-            <tr>
-              <td>corpus_mgnify_phylum_relab</td>
-              <td class="mono">.parquet</td>
-              <td>157,905 × 62</td>
-              <td>MGnify-only phylum-level abundances (SILVA SSU r138 labels).</td>
-              <td><a class="download-btn" href="https://doi.org/10.5281/zenodo.22150633" target="_blank">Zenodo ↗</a></td>
-            </tr>
-            <tr>
-              <td>corpus_mgnify_class_relab</td>
-              <td class="mono">.parquet</td>
-              <td>157,905 × 101</td>
-              <td>MGnify-only class-level abundances.</td>
-              <td><a class="download-btn" href="https://doi.org/10.5281/zenodo.22150633" target="_blank">Zenodo ↗</a></td>
-            </tr>
-            <tr>
-              <td>corpus_mgnify_order_relab</td>
-              <td class="mono">.parquet</td>
-              <td>157,905 × 198</td>
-              <td>MGnify-only order-level abundances.</td>
-              <td><a class="download-btn" href="https://doi.org/10.5281/zenodo.22150633" target="_blank">Zenodo ↗</a></td>
-            </tr>
-            <tr>
-              <td>corpus_mgnify_family_relab</td>
-              <td class="mono">.parquet</td>
-              <td>157,905 × 341</td>
-              <td>MGnify-only family-level abundances.</td>
-              <td><a class="download-btn" href="https://doi.org/10.5281/zenodo.22150633" target="_blank">Zenodo ↗</a></td>
-            </tr>
-            <tr>
-              <td>corpus_mgnify_genus_relab</td>
-              <td class="mono">.parquet</td>
-              <td>157,905 × 809</td>
-              <td>MGnify-only genus-level abundances (SILVA labels — not harmonized with AGP).</td>
-              <td><a class="download-btn" href="https://doi.org/10.5281/zenodo.22150633" target="_blank">Zenodo ↗</a></td>
-            </tr>
-            <tr>
-              <td>mgnify_full_metadata</td>
-              <td class="mono">.csv</td>
-              <td>156,866 × 6</td>
-              <td>MGnify full pull metadata (sample_id, study, body_site, host_age, host_sex, subject_id).</td>
-              <td><a class="download-btn" href="https://doi.org/10.5281/zenodo.22150633" target="_blank">Zenodo ↗</a></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- ── Shotgun files ───────────────────────────────────────────── -->
-    <div class="section">
-      <div class="section-title">Shotgun Metagenomics Tier (22,588 samples — curatedMetagenomicData)</div>
-      <div class="download-section">
-        <table class="download-table">
-          <thead>
-            <tr>
-              <th>File</th>
-              <th>Format</th>
-              <th>Shape</th>
-              <th>Description</th>
-              <th>Download</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>corpus_shotgun_species_relab</td>
-              <td class="mono">.parquet</td>
-              <td>22,583 × 714</td>
-              <td>MetaPhlAn3 species relative abundances. Primary shotgun feature matrix. Row index = sample_uid.</td>
-              <td><a class="download-btn" href="https://doi.org/10.5281/zenodo.22150633" target="_blank">Zenodo ↗</a></td>
-            </tr>
-            <tr>
-              <td>corpus_shotgun_pathway_relab</td>
-              <td class="mono">.parquet</td>
-              <td>22,512 × 511</td>
-              <td>HUMAnN3 pathway relative abundances (MetaCyc). Not all samples have pathway data.</td>
-              <td><a class="download-btn" href="https://doi.org/10.5281/zenodo.22150633" target="_blank">Zenodo ↗</a></td>
-            </tr>
-            <tr>
-              <td>corpus_shotgun_metadata</td>
-              <td class="mono">.csv</td>
-              <td>22,588 × 14</td>
-              <td>Shotgun-tier metadata including disease, country, platform, study_condition.</td>
-              <td><a class="download-btn" href="https://doi.org/10.5281/zenodo.22150633" target="_blank">Zenodo ↗</a></td>
-            </tr>
-            <tr>
-              <td>multilevel/shotgun/ (5 files)</td>
-              <td class="mono">.parquet</td>
-              <td>~22,500 × 20–200</td>
-              <td>Per-rank tables (phylum, class, order, family, genus) derived from MetaPhlAn3 lineages.</td>
-              <td><a class="download-btn" href="https://doi.org/10.5281/zenodo.22150633" target="_blank">Zenodo ↗</a></td>
-            </tr>
-          </tbody>
+          <tbody id="dl-files-tbody"></tbody>
         </table>
       </div>
     </div>
@@ -207,11 +62,11 @@
 
 # Load 16S genus table (primary pretraining feature matrix)
 X_16s = pd.read_parquet("data/16s/corpus_16s_genus_relab_expanded.parquet") \
-          .set_index("sample_id")   # 164,958 × 977
+          .set_index("sample_id")   # 165,325 × 1,491 genus features
 
 # Load shotgun species table
 X_shg = pd.read_parquet("data/shotgun/corpus_shotgun_species_relab.parquet") \
-          .set_index("sample_uid")  # 22,583 × 713
+          .set_index("sample_uid")  # 22,747 × 765 species
 
 # Load master metadata
 meta = pd.read_parquet("data/metadata/corpus_metadata_catalog_expanded.parquet") \
@@ -222,32 +77,53 @@ meta_16s = meta[meta.modality == "16S"]
 meta_shg = meta[meta.modality == "shotgun"]</div>
     </div>
 
-    <!-- ── System requirements ─────────────────────────────────────── -->
+    <!-- ── Loading notes ───────────────────────────────────────────── -->
     <div class="section">
-      <div class="section-title">System Requirements</div>
-      <div class="schema-wrapper">
-        <table class="schema-table">
-          <thead>
-            <tr><th>File set</th><th>RAM needed</th><th>Disk (compressed)</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Metadata only</td><td>~500 MB</td><td>~90 MB</td></tr>
-            <tr><td>16S genus table (164k × 977)</td><td>~8 GB</td><td>~1.2 GB</td></tr>
-            <tr><td>Shotgun species table (22k × 713)</td><td>~1.5 GB</td><td>~200 MB</td></tr>
-            <tr><td>Full corpus (all tables)</td><td>~32 GB</td><td>~4 GB</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <div class="section-title">Loading Notes</div>
       <p style="font-size:0.82rem;color:var(--text-muted)">
-        For low-memory environments, use <code>pd.read_parquet(..., columns=[...])</code>
-        to load only the columns you need, or process in chunks.
-        All parquet files use snappy compression and column-oriented storage.
+        The 16S genus table is the largest matrix. For low-memory environments, use
+        <code>pd.read_parquet(..., columns=[...])</code> to load only the columns you need,
+        or process in chunks. All parquet files use snappy compression and column-oriented storage.
       </p>
     </div>
 
   </div>
 </main>
 
+<script src="js/site_data.js"></script>
 <script src="js/main.js"></script>
+<script>
+(function fillDownloads() {
+  const F = FILE_CATALOG;
+  const ZEN = "https://doi.org/10.5281/zenodo.22150633";
+  const fmt = n => Number(n).toLocaleString('en-US');
+  const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+
+  // totals
+  const totalBytes = F.reduce((a, f) => a + (f.size_bytes || 0), 0);
+  const human = b => {
+    const u = ['B', 'KB', 'MB', 'GB']; let i = 0; let n = b;
+    while (n >= 1024 && i < u.length - 1) { n /= 1024; i++; }
+    return n.toFixed(1) + ' ' + u[i];
+  };
+  set('dl-total-size', human(totalBytes));
+  set('dl-nfiles', F.length);
+
+  const tb = document.getElementById('dl-files-tbody');
+  if (!tb) return;
+  F.forEach(f => {
+    const tr = document.createElement('tr');
+    const sha = (f.sha256 || '').slice(0, 12) + '…';
+    tr.innerHTML =
+      `<td class="mono" style="word-break:break-all">${f.path.replace(/^data\//, '')}</td>`
+      + `<td class="mono">.${f.format}</td>`
+      + `<td>${fmt(f.rows)} × ${fmt(f.cols)}</td>`
+      + `<td>${f.size_human}</td>`
+      + `<td class="mono" title="${f.sha256}" style="font-size:0.72rem">${sha}</td>`
+      + `<td><a class="download-btn" href="${ZEN}" target="_blank" rel="noopener">Zenodo ↗</a></td>`;
+    tb.appendChild(tr);
+  });
+})();
+</script>
 </body>
 </html>

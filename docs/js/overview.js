@@ -3,7 +3,7 @@
    ═══════════════════════════════════════════════════════════════ */
 
 async function loadOverview() {
-  const stats    = SUMMARY_STATS;
+  const stats    = SITE_STATS;
   const breakdown = BREAKDOWN_DATA;
 
   /* ── Stat cards ───────────────────────────────────────────────── */
@@ -11,8 +11,46 @@ async function loadOverview() {
   document.getElementById('stat-studies').textContent    = fmtNumFull(stats.n_studies);
   document.getElementById('stat-sites').textContent      = stats.n_body_sites;
   document.getElementById('stat-countries').textContent  = stats.n_countries;
-  document.getElementById('stat-taxa-16s').textContent   = fmtNumFull(stats.n_taxa_16s);
-  document.getElementById('stat-taxa-shg').textContent   = fmtNumFull(stats.n_taxa_shotgun);
+  document.getElementById('stat-taxa-16s').textContent   = fmtNumFull(TAXA_COUNTS['16s_genus']);
+  document.getElementById('stat-taxa-shg').textContent   = fmtNumFull(TAXA_COUNTS.shotgun_species);
+
+  /* ── Hero numbers (all from real data) ────────────────────────── */
+  const setTxt = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+  setTxt('hero-samples',   fmtNumFull(stats.n_samples_total));
+  setTxt('hero-sites',     stats.n_body_sites);
+  setTxt('hero-sites2',    stats.n_body_sites);
+  setTxt('hero-mods',      stats.n_modalities);
+  setTxt('hero-16s',       fmtNumFull(stats.by_modality['16S']));
+  setTxt('hero-shg',       fmtNumFull(stats.by_modality['shotgun']));
+  setTxt('hero-studies',   fmtNumFull(stats.n_studies));
+  setTxt('hero-countries', stats.n_countries);
+
+  /* ── "Corpus at a Glance" table (from body_site_x_modality) ───── */
+  const glanceSites = ['stool', 'respiratory', 'oral', 'skin', 'urogenital', 'milk', 'brain'];
+  const m16 = stats.body_site_x_modality['16S']     || {};
+  const msg = stats.body_site_x_modality['shotgun'] || {};
+  const tb  = document.getElementById('glance-tbody');
+  let t16 = 0, tsg = 0;
+  if (tb) {
+    glanceSites.forEach(bs => {
+      const a = m16[bs] || 0, b = msg[bs] || 0;
+      if (a + b === 0) return;
+      t16 += a; tsg += b;
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${badge(bs)}</td>`
+        + `<td style="text-align:right">${a ? fmtNumFull(a) : '—'}</td>`
+        + `<td style="text-align:right">${b ? fmtNumFull(b) : '—'}</td>`
+        + `<td style="text-align:right"><b>${fmtNumFull(a + b)}</b></td>`;
+      tb.appendChild(tr);
+    });
+    const tot = document.createElement('tr');
+    tot.style.fontWeight = '700';
+    tot.innerHTML = `<td>Total</td>`
+      + `<td style="text-align:right">${fmtNumFull(t16)}</td>`
+      + `<td style="text-align:right">${fmtNumFull(tsg)}</td>`
+      + `<td style="text-align:right">${fmtNumFull(t16 + tsg)}</td>`;
+    tb.appendChild(tot);
+  }
 
   const ld  = plotlyLayout();
   const cfg = PLOTLY_CONFIG;
