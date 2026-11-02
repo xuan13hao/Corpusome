@@ -97,8 +97,6 @@ function badge(val) {
 const NAV_LINKS = [
   { href: 'index.html',         label: 'Overview'       },
   { href: 'browse.html',        label: 'Browse'         },
-  { href: 'qc.html',            label: 'Quality Control'},
-  { href: 'batch.html',         label: 'Batch Effects'  },
   { href: 'documentation.html', label: 'Documentation'  },
   { href: 'cite.html',          label: 'Cite'           },
   { href: 'download.html',      label: 'Download'       },
@@ -114,7 +112,7 @@ const NAV_LINKS = [
 
   document.body.insertAdjacentHTML('afterbegin', `
     <nav class="nav">
-      <a class="nav-brand" href="index.html">Corpusome <span class="version">v1.2</span></a>
+      <a class="nav-brand" href="index.html">Corpusome <span class="version">v1.0</span></a>
       <div class="nav-links">${links(false)}</div>
       <button class="nav-hamburger" id="_nav_ham" aria-label="Toggle menu">&#9776;</button>
     </nav>
@@ -125,9 +123,14 @@ const NAV_LINKS = [
     document.getElementById('_nav_mob').classList.toggle('open');
   });
 
+  const S = (typeof SITE_STATS !== 'undefined') ? SITE_STATS : null;
+  const footerStats = S
+    ? `${Number(S.n_samples_total).toLocaleString('en-US')} human microbiome samples · ${S.n_body_sites} body sites · ${Number(S.n_studies).toLocaleString('en-US')} studies`
+    : 'human microbiome corpus';
+
   document.body.insertAdjacentHTML('beforeend', `
     <footer class="footer">
-      Corpusome v1.2 &mdash; 190,601 human microbiome samples · 7 body sites · 782 studies &mdash;
+      Corpusome v1.0 &mdash; ${footerStats} &mdash;
       <a href="cite.html">How to Cite</a> &middot;
       <a href="download.html">Download</a> &middot;
       <a href="https://github.com/xuan13hao/Corpusome" target="_blank" rel="noopener">GitHub</a>

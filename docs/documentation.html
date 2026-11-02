@@ -15,14 +15,16 @@
     <div class="page-header">
       <div class="page-title">Documentation &amp; Data Schema</div>
       <div class="page-subtitle">
-        Field definitions, data sources, pipeline versions, and usage notes for the Corpusome v1.2 release.
+        Field definitions, data sources, pipeline versions, and usage notes for the Corpusome v1.0 release.
       </div>
     </div>
 
     <!-- Version banner -->
     <div class="info-box">
-      <strong>Current release: v1.2</strong> — expanded from v1.1 (187,546 samples) to include disease-specific cohorts. v1.1 expanded from v1.0 (30,680 samples) by pulling the full
-      EBI MGnify human body-site catalogue (708 studies, 156,866 samples).
+      <strong>Current release: v1.0</strong> —
+      <span id="doc-total">—</span> samples across <span id="doc-sites">—</span> body sites
+      and <span id="doc-studies">—</span> studies, integrating curatedMetagenomicData, the
+      American Gut Project, the EBI MGnify human body-site catalogue, and disease-specific cohorts.
       Pipeline: MetaPhlAn3 + HUMAnN3 (shotgun); Greengenes 13_8 / SILVA SSU (16S).
     </div>
 
@@ -31,7 +33,7 @@
       <div class="section-title">Corpus Metadata Schema</div>
       <p class="section-subtitle">
         Primary file: <code>data/metadata/corpus_metadata_catalog_expanded.{parquet,csv}</code>
-        — 190,601 rows × 15 columns.
+        — <span id="doc-catalog-shape">—</span>.
       </p>
       <div class="schema-wrapper">
         <table class="schema-table">
@@ -94,7 +96,7 @@
             <tr>
               <td><code>host_age</code></td>
               <td><span class="type-tag">float</span></td>
-              <td>Host age in years at sampling. May be <code>NaN</code> when not provided. Range: 0–101 years in AGP; most cMD studies have age.</td>
+              <td>Host age in years at sampling. May be <code>NaN</code> when not provided. Range: <span id="doc-age-range">—</span> years across the corpus.</td>
               <td><code>32.0</code></td>
             </tr>
             <tr>
@@ -124,7 +126,7 @@
             <tr>
               <td><code>disease</code></td>
               <td><span class="type-tag">string</span></td>
-              <td>Disease/diagnosis label from original study (shotgun tier only). 141 distinct conditions. <code>healthy</code> for controls.</td>
+              <td>Disease/diagnosis label from original study (shotgun tier only). <span id="doc-n-disease">—</span> distinct conditions. <code>healthy</code> for controls.</td>
               <td><code>IBD</code></td>
             </tr>
             <tr>
@@ -136,7 +138,7 @@
             <tr>
               <td><code>health_status</code></td>
               <td><span class="type-tag">string</span></td>
-              <td>Curated health status. Values: <code>healthy</code> (14,566), <code>diseased</code> (8,022), <code>unlabeled</code> (164,958 — entire 16S tier). Use with caution for pretraining; do not filter out unlabeled samples.</td>
+              <td>Curated health status. Values: <code>healthy</code> (<span id="doc-hs-healthy">—</span>), <code>diseased</code> (<span id="doc-hs-diseased">—</span>), <code>unlabeled</code> (<span id="doc-hs-unlabeled">—</span> — entire 16S tier). Use with caution for pretraining; do not filter out unlabeled samples.</td>
               <td><code>healthy</code></td>
             </tr>
           </tbody>
@@ -157,51 +159,14 @@
               <th>Taxonomy</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td><code>data/16s/corpus_16s_genus_relab_expanded.parquet</code></td>
-              <td>164,958 × 978</td>
-              <td>16S genus relative abundances (harmonized). Row index = <code>sample_id</code>; columns = genus tokens like <code>g__Bacteroides</code>.</td>
-              <td>Greengenes 13_8 + SILVA SSU, harmonized at terminal genus</td>
-            </tr>
-            <tr>
-              <td><code>data/16s_mgnify_full/corpus_mgnify_phylum_relab.parquet</code></td>
-              <td>157,905 × 62</td>
-              <td>Per-phylum relative abundances (MGnify full pull only).</td>
-              <td>SILVA SSU r138</td>
-            </tr>
-            <tr>
-              <td><code>data/16s_mgnify_full/corpus_mgnify_genus_relab.parquet</code></td>
-              <td>157,905 × 809</td>
-              <td>Per-genus relative abundances (MGnify full pull only, SILVA labels).</td>
-              <td>SILVA SSU r138</td>
-            </tr>
-            <tr>
-              <td><code>data/shotgun/corpus_shotgun_species_relab.parquet</code></td>
-              <td>22,583 × 714</td>
-              <td>Shotgun species relative abundances (MetaPhlAn3). Row index = <code>sample_uid</code>.</td>
-              <td>MetaPhlAn3 (mpa_vJan21_CHOCOPhlAnSGB_202103)</td>
-            </tr>
-            <tr>
-              <td><code>data/shotgun/corpus_shotgun_pathway_relab.parquet</code></td>
-              <td>22,512 × 511</td>
-              <td>HUMAnN3 pathway relative abundances (MetaCyc). Not all samples have pathway data.</td>
-              <td>HUMAnN3 + MetaCyc</td>
-            </tr>
-            <tr>
-              <td><code>data/multilevel/shotgun/</code></td>
-              <td>—</td>
-              <td>Shotgun per-rank tables (phylum, class, order, family, genus) derived from the species table by collapsing MetaPhlAn3 lineages.</td>
-              <td>MetaPhlAn3</td>
-            </tr>
-          </tbody>
+          <tbody id="doc-taxo-tbody"></tbody>
         </table>
       </div>
     </div>
 
     <!-- ── Processing pipeline ─────────────────────────────────────── -->
     <div class="section">
-      <div class="section-title">Processing Pipeline (v1.1)</div>
+      <div class="section-title">Processing Pipeline</div>
       <p class="section-subtitle">Executed via <code>pipeline/run.sh</code>. Numbered scripts in <code>pipeline/</code>.</p>
 
       <div class="pipeline-step">
@@ -223,8 +188,8 @@
           <h4>16S Harmonization</h4>
           <p>
             Terminal genus tokens extracted from Greengenes 13_8 (AGP) and SILVA SSU r138 (MGnify)
-            lineage strings. Tokens prefixed <code>g__</code>; genus-level columns retained only
-            if present in ≥10 samples corpus-wide. Final vocabulary: 977 genus tokens.
+            lineage strings. Tokens prefixed <code>g__</code> and prevalence-filtered. The released
+            harmonized 16S genus table contains <span id="doc-vocab">—</span> genus tokens.
           </p>
         </div>
       </div>
@@ -268,41 +233,53 @@
       </div>
     </div>
 
-    <!-- ── Version history ─────────────────────────────────────────── -->
-    <div class="section">
-      <div class="section-title">Version History</div>
-      <div class="schema-wrapper">
-        <table class="schema-table">
-          <thead>
-            <tr><th>Version</th><th>Date</th><th>Samples</th><th>Key Changes</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>v1.2</strong> <span class="badge badge-healthy">current</span></td>
-              <td>2026</td>
-              <td>190,601</td>
-              <td>Added 3,055 samples from 7 disease-specific cohorts: preclinical AD gut shotgun (Ferreiro 2023, n=164), AD brain tissue 16S (n=88), lung cancer TCGA/Poore2020 (n=1,549), BALF mNGS lung cancer vs. infection (n=400), Hartwig metastatic lung WGS (Battaglia 2024, n=576), T2D gut shotgun Qin2012 (n=134) and Karlsson2013 (n=144). Added brain as 7th body site.</td>
-            </tr>
-            <tr>
-              <td>v1.1</td>
-              <td>2026-07</td>
-              <td>187,546</td>
-              <td>Added full EBI MGnify human body-site catalogue pull (156,866 samples). Per-rank tables at phylum–genus. All non-stool body sites grew by 1–2 orders of magnitude.</td>
-            </tr>
-            <tr>
-              <td>v1.0</td>
-              <td>2024</td>
-              <td>30,680</td>
-              <td>Initial release. curatedMetagenomicData + American Gut Project + selective MGnify pull. Shotgun tier (22,588) + preliminary 16S (8,092).</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
   </div>
 </main>
 
+<script src="js/site_data.js"></script>
 <script src="js/main.js"></script>
+<script>
+(function fillDocs() {
+  const S = SITE_STATS, F = FILE_CATALOG, T = TAXA_COUNTS;
+  const fmt = n => Number(n).toLocaleString('en-US');
+  const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+  const find = sub => F.find(f => f.path.includes(sub)) || {};
+  const shape = sub => { const f = find(sub); return f.rows != null ? `${fmt(f.rows)} × ${fmt(f.cols)}` : '—'; };
+
+  set('doc-total',   fmt(S.n_samples_total));
+  set('doc-sites',   S.n_body_sites);
+  set('doc-studies', fmt(S.n_studies));
+  set('doc-n-disease', S.n_disease_conditions);
+  set('doc-vocab',   fmt(T['16s_genus']));
+  set('doc-age-range', `${S.host_age_min}–${S.host_age_max}`);
+  set('doc-catalog-shape', shape('metadata/corpus_metadata_catalog_expanded.parquet'));
+  set('doc-hs-healthy',   fmt(S.health_status.healthy));
+  set('doc-hs-diseased',  fmt(S.health_status.diseased));
+  set('doc-hs-unlabeled', fmt(S.health_status.unlabeled));
+
+  // Taxonomy & feature tables — shapes pulled from the real file catalog
+  const rows = [
+    ['data/16s/corpus_16s_genus_relab_expanded.parquet',
+     '16S genus relative abundances (harmonized). Row index = <code>sample_id</code>; columns = genus tokens like <code>g__Bacteroides</code>.',
+     'Greengenes 13_8 + SILVA SSU, harmonized at terminal genus'],
+    ['data/16s_mgnify_full/corpus_mgnify_phylum_relab.parquet',
+     'Per-phylum relative abundances (MGnify full pull only).', 'SILVA SSU r138'],
+    ['data/16s_mgnify_full/corpus_mgnify_genus_relab.parquet',
+     'Per-genus relative abundances (MGnify full pull only, SILVA labels).', 'SILVA SSU r138'],
+    ['data/shotgun/corpus_shotgun_species_relab.parquet',
+     'Shotgun species relative abundances (MetaPhlAn3). Row index = <code>sample_uid</code>.',
+     'MetaPhlAn3 (mpa_vJan21_CHOCOPhlAnSGB_202103)'],
+    ['data/shotgun/corpus_shotgun_pathway_relab.parquet',
+     'HUMAnN3 pathway relative abundances (MetaCyc). Not all shotgun samples have pathway data.',
+     'HUMAnN3 + MetaCyc'],
+  ];
+  const tb = document.getElementById('doc-taxo-tbody');
+  if (tb) rows.forEach(([path, content, tax]) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td><code>${path}</code></td><td>${shape(path)}</td><td>${content}</td><td>${tax}</td>`;
+    tb.appendChild(tr);
+  });
+})();
+</script>
 </body>
 </html>
