@@ -97,6 +97,7 @@ function badge(val) {
 const NAV_LINKS = [
   { href: 'index.html',         label: 'Overview'       },
   { href: 'browse.html',        label: 'Browse'         },
+  { href: 'taxa.html',          label: 'Taxa'           },
   { href: 'documentation.html', label: 'Documentation'  },
   { href: 'cite.html',          label: 'Cite'           },
   { href: 'download.html',      label: 'Download'       },

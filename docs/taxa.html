@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taxa — Corpusome</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables@6.2.1/dist/css/tabulator_simple.min.css">
+</head>
+<body>
+
+<main class="main">
+  <div class="container">
+
+    <div class="page-header">
+      <div class="page-title">Taxa Across Body Sites</div>
+      <div class="page-subtitle">
+        Prevalence and mean relative abundance of every genus (16S tier) and species
+        (shotgun tier) across body sites — computed directly from the relative-abundance
+        tables, no modelling. Prevalence = fraction of samples in a body site where the
+        taxon is detected (&gt;0); mean relative abundance is averaged over all samples in
+        that body site.
+      </div>
+    </div>
+
+    <!-- Tier toggle -->
+    <div class="controls-row" style="margin-bottom:1.25rem">
+      <span class="control-label">Tier:</span>
+      <div class="toggle-group">
+        <button class="toggle-btn tier-btn active" data-tier="16S">16S genus</button>
+        <button class="toggle-btn tier-btn" data-tier="shotgun">Shotgun species</button>
+      </div>
+    </div>
+
+    <!-- Top taxa stacked bar -->
+    <div class="chart-card" style="margin-bottom:1.5rem">
+      <div class="chart-title">Dominant Taxa by Body Site</div>
+      <p class="chart-subtitle" id="taxa-bar-sub">Mean relative abundance of the top taxa per body site (remainder grouped as “Other”).</p>
+      <div class="chart-box-tall" id="chart-top-taxa" style="height:460px"></div>
+    </div>
+
+    <!-- Taxon browser -->
+    <div class="section">
+      <div class="section-title">Taxon Browser</div>
+      <div class="filters-bar" style="margin-bottom:0.75rem">
+        <div class="filter-group" style="min-width:240px;flex:1">
+          <label class="filter-label" for="taxon-search">Search taxon</label>
+          <input class="filter-input" id="taxon-search" type="text" placeholder="e.g. Bacteroides, Lactobacillus, coli…">
+        </div>
+      </div>
+      <div class="table-meta">
+        Showing <strong id="taxa-count">—</strong> taxa for the selected tier ·
+        cells show <strong>prevalence %</strong> (hover for mean relative abundance) ·
+        click a column header to sort
+      </div>
+      <div id="taxon-table"></div>
+      <p style="font-size:0.78rem;color:var(--text-muted);margin-top:0.75rem">
+        Only taxa reaching ≥1% prevalence in at least one body site are listed.
+        A blank cell means the taxon was not detected in that body site.
+        Brain samples are not part of the merged 16S genus table and the shotgun tier has
+        no brain samples, so no brain column is shown.
+      </p>
+    </div>
+
+  </div>
+</main>
+
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@6.2.1/dist/js/tabulator.min.js"></script>
+<script src="js/site_data.js"></script>
+<script src="js/taxon_data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/taxa.js"></script>
+</body>
+</html>
