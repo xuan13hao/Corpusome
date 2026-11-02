@@ -15,20 +15,20 @@
     <div class="page-header">
       <div class="page-title">Download</div>
       <div class="page-subtitle">
-        All Corpusome v1.0 files are available on Zenodo under CC BY 4.0.
+        All Corpusome v1.0 files are available from the GitHub repository under CC BY 4.0.
         Total release size: <span id="dl-total-size">—</span> across <span id="dl-nfiles">—</span> files.
         Every file below lists its exact shape, byte size, and SHA-256 checksum,
         all computed from the release files by <code>scripts/build_site_stats.py</code>.
       </div>
     </div>
 
-    <!-- DOI -->
+    <!-- Repository -->
     <div class="info-box" style="margin-bottom:1.5rem">
-      <strong>Zenodo DOI:</strong><br>
-      <a href="https://doi.org/10.5281/zenodo.22150633" target="_blank" rel="noopener">
-        https://doi.org/10.5281/zenodo.22150633
+      <strong>Repository:</strong><br>
+      <a href="https://github.com/xuan13hao/Corpusome" target="_blank" rel="noopener">
+        https://github.com/xuan13hao/Corpusome
       </a>
-      &nbsp;—&nbsp; versioned, citable, archived.
+      &nbsp;—&nbsp; all data files, metadata, and build scripts.
     </div>
 
     <!-- ── Release files (generated from the real file catalog) ─────── -->
@@ -95,7 +95,7 @@ meta_shg = meta[meta.modality == "shotgun"]</div>
 <script>
 (function fillDownloads() {
   const F = FILE_CATALOG;
-  const ZEN = "https://doi.org/10.5281/zenodo.22150633";
+  const GH_RAW = "https://raw.githubusercontent.com/xuan13hao/Corpusome/main/";
   const fmt = n => Number(n).toLocaleString('en-US');
   const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
 
@@ -120,7 +120,7 @@ meta_shg = meta[meta.modality == "shotgun"]</div>
       + `<td>${fmt(f.rows)} × ${fmt(f.cols)}</td>`
       + `<td>${f.size_human}</td>`
       + `<td class="mono" title="${f.sha256}" style="font-size:0.72rem">${sha}</td>`
-      + `<td><a class="download-btn" href="${ZEN}" target="_blank" rel="noopener">Zenodo ↗</a></td>`;
+      + `<td><a class="download-btn" href="${GH_RAW}${f.path}" target="_blank" rel="noopener">Download ↓</a></td>`;
     tb.appendChild(tr);
   });
 })();
