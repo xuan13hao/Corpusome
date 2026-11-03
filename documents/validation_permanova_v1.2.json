@@ -1,0 +1,44 @@
+{
+ "16S_bodysite_strat": {
+  "body_site": {
+   "median": 0.2726,
+   "ci_lo": 0.2613,
+   "ci_hi": 0.2792
+  },
+  "source": {
+   "median": 0.0074,
+   "ci_lo": 0.0048,
+   "ci_hi": 0.0112
+  },
+  "n_median": 1985,
+  "n_seeds": 20
+ },
+ "16S_source_balanced": {
+  "body_site": {
+   "median": 0.2988,
+   "ci_lo": 0.2925,
+   "ci_hi": 0.3042
+  },
+  "source": {
+   "median": 0.0325,
+   "ci_lo": 0.0318,
+   "ci_hi": 0.0332
+  },
+  "n_median": 4522,
+  "n_seeds": 20
+ },
+ "shotgun_bodysite_strat": {
+  "body_site": {
+   "median": 0.2809,
+   "ci_lo": 0.2748,
+   "ci_hi": 0.2859
+  },
+  "study": {
+   "median": 0.3084,
+   "ci_lo": 0.3006,
+   "ci_hi": 0.3203
+  },
+  "n_median": 1391,
+  "n_seeds": 20
+ }
+}

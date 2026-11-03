@@ -6,20 +6,19 @@
     "note": "All website numbers are computed from the real release files. Do not hand-edit."
   },
   "corpus": {
-    "n_samples_total": 190601,
-    "n_studies": 782,
+    "n_samples_total": 189052,
+    "n_studies": 781,
     "n_body_sites": 7,
     "n_modalities": 2,
     "n_countries": 42,
     "by_modality": {
       "16S": 165046,
-      "shotgun": 25555
+      "shotgun": 24006
     },
     "by_source": {
       "MGnify_full": 156866,
       "curatedMetagenomicData": 22588,
       "AGP": 6716,
-      "TCGA_Poore2020": 1549,
       "MGnify": 1376,
       "Hartwig_Battaglia2024": 576,
       "BALF_mNGS": 400,
@@ -29,7 +28,7 @@
     },
     "by_body_site": {
       "stool": 95826,
-      "respiratory": 43358,
+      "respiratory": 41809,
       "oral": 24463,
       "skin": 14635,
       "urogenital": 12223,
@@ -47,7 +46,7 @@
       },
       "shotgun": {
         "stool": 21472,
-        "respiratory": 2618,
+        "respiratory": 1069,
         "oral": 857,
         "skin": 504,
         "urogenital": 96,
@@ -56,8 +55,8 @@
     },
     "health_status": {
       "unlabeled": 164972,
-      "healthy": 15162,
-      "diseased": 10467
+      "healthy": 14835,
+      "diseased": 9245
     },
     "studies_by_source": {
       "MGnify_full": 681,
@@ -68,8 +67,7 @@
       "BALF_mNGS": 1,
       "Brain_16S": 1,
       "Ferreiro2023": 1,
-      "Hartwig_Battaglia2024": 1,
-      "TCGA_Poore2020": 1
+      "Hartwig_Battaglia2024": 1
     },
     "n_disease_conditions": 145,
     "host_age_min": 0.0,
@@ -95,7 +93,7 @@
     "note": "Sample ids form a strict nested subset from phylum down to genus (verified: no duplicate ids at any rank). Counts shrink because samples that fail to resolve at a finer rank are dropped from that rank's table: 40 samples resolve at class but have no order-level assignment, and a further 999 resolve at family but retain no genus feature after prevalence filtering. 157,905 - 40 - 999 = 156,866, which equals the final MGnify_full metadata and the genus table. This is taxonomic-resolution dropout, NOT duplicate removal."
   },
   "shotgun_cascade": {
-    "metadata_rows": 25555,
+    "metadata_rows": 24006,
     "species_rows": 22747,
     "pathway_rows": 22512,
     "note": "Not every shotgun sample has a HUMAnN pathway profile; the pathway table therefore has fewer rows than the species/metadata tables."
@@ -217,23 +215,23 @@
       "path": "data/metadata/corpus_metadata_catalog_expanded.csv",
       "name": "corpus_metadata_catalog_expanded",
       "format": "csv",
-      "rows": 190601,
+      "rows": 189052,
       "cols": 15,
-      "size_bytes": 22816715,
-      "size_human": "21.8 MB",
-      "md5": "db6f88ae7c10ca925941a099721a7de6",
-      "sha256": "d152468c91d84c0b0feb14b802c70f170c00eb0e9bf6a0124debf31172951267"
+      "size_bytes": 22528802,
+      "size_human": "21.5 MB",
+      "md5": "7872910e26761fd9f41765adff5c8b7d",
+      "sha256": "102d3c78e822eb0b406d3c38b717c0646a8befc34818ad087715039bd8b2b310"
     },
     {
       "path": "data/metadata/corpus_metadata_catalog_expanded.parquet",
       "name": "corpus_metadata_catalog_expanded",
       "format": "parquet",
-      "rows": 190601,
+      "rows": 189052,
       "cols": 15,
-      "size_bytes": 2027302,
+      "size_bytes": 1975578,
       "size_human": "1.9 MB",
-      "md5": "dcf4c43860e42ec56dc434423c65628a",
-      "sha256": "c8510b86108e2d798f4e4bb05f0c33d49490eccec45dd2076c98f10f82b534c2"
+      "md5": "8051d8d6d3d85da815380378e5f3aade",
+      "sha256": "48954ac28987db6db1ac7301deb794308cea7fa811cc9ed22f75c4ce2b4d28aa"
     },
     {
       "path": "data/metadata/mgnify_human_bodysite_studies.csv",
@@ -316,23 +314,23 @@
       "path": "data/shotgun/corpus_kraken2_genus_relab.parquet",
       "name": "corpus_kraken2_genus_relab",
       "format": "parquet",
-      "rows": 1949,
+      "rows": 400,
       "cols": 2426,
-      "size_bytes": 13372523,
-      "size_human": "12.8 MB",
-      "md5": "639ace26a6326f0d24173fc607958480",
-      "sha256": "8ab96d6a952cb1a80aaaea3c0e9d2ca630fb841585913f5ee2c2f3f1fe003d5d"
+      "size_bytes": 1676521,
+      "size_human": "1.6 MB",
+      "md5": "a841a22aee5c899f5d9f5cf7127e5573",
+      "sha256": "969b0dda45a9382a983668866a8b010b269b4ee8f3d1236be7a97d451cbd4b86"
     },
     {
       "path": "data/shotgun/corpus_shotgun_metadata.csv",
       "name": "corpus_shotgun_metadata",
       "format": "csv",
-      "rows": 25555,
+      "rows": 24006,
       "cols": 14,
-      "size_bytes": 4728854,
-      "size_human": "4.5 MB",
-      "md5": "9a264b9d45fd669606e3a1ca8958752a",
-      "sha256": "5222b62ac0c479bbc55587b7064c7ef718d5ce1ca4f6ea6832e0e622120b50e5"
+      "size_bytes": 4454555,
+      "size_human": "4.2 MB",
+      "md5": "7fa67bfaa44f75d1f51abbaea2836006",
+      "sha256": "8b60f0de6c9efa3e759052f900aee1049b6de668d4df17fa166b3cbce3e3004e"
     },
     {
       "path": "data/shotgun/corpus_shotgun_pathway_relab.parquet",
@@ -447,11 +445,6 @@
       "source": "MLRepo",
       "body_site": "stool",
       "n_samples": 278
-    },
-    {
-      "source": "TCGA_Poore2020",
-      "body_site": "respiratory",
-      "n_samples": 1549
     },
     {
       "source": "curatedMetagenomicData",

@@ -70,7 +70,7 @@ X_shg = pd.read_parquet("data/shotgun/corpus_shotgun_species_relab.parquet") \
 
 # Load master metadata
 meta = pd.read_parquet("data/metadata/corpus_metadata_catalog_expanded.parquet") \
-         .set_index("sample_uid")  # 190,601 × 15
+         .set_index("sample_uid")  # 189,052 × 15
 
 # Always split by modality before downstream analysis!
 meta_16s = meta[meta.modality == "16S"]

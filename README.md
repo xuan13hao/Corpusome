@@ -1,10 +1,10 @@
 # Corpusome — Harmonized cross-body-site human microbiome corpus (v1.0)
 
 A reusable pretraining resource for microbial representation learning:
-**190,601 human microbiome samples** across **7 body sites** and **two sequencing
+**189,052 human microbiome samples** across **7 body sites** and **two sequencing
 modalities** (16S amplicon + shotgun), integrated from curatedMetagenomicData, the
 American Gut Project, a full pull of the EBI MGnify human body-site catalogue, and
-seven disease-specific cohorts (Alzheimer's, lung cancer, type-2 diabetes).
+six disease-specific cohorts (Alzheimer's, lung cancer, type-2 diabetes).
 
 > **Every number in this repository and on the website is computed from the release
 > files, not hand-written.** Run `scripts/build_site_stats.py` to regenerate the
@@ -22,19 +22,19 @@ Two tiers, **kept separate** (different profilers/taxonomies — do not merge na
 | Body site   |      16S | Shotgun |     Total |
 |-------------|---------:|--------:|----------:|
 | Stool       |   74,354 |  21,472 |    95,826 |
-| Respiratory |   40,740 |   2,618 |    43,358 |
+| Respiratory |   40,740 |   1,069 |    41,809 |
 | Oral        |   23,606 |     857 |    24,463 |
 | Skin        |   14,131 |     504 |    14,635 |
 | Urogenital  |   12,127 |      96 |    12,223 |
 | Brain       |       88 |       — |        88 |
 | Milk        |        — |       8 |         8 |
-| **Total**   | **165,046** | **25,555** | **190,601** |
+| **Total**   | **165,046** | **24,006** | **189,052** |
 
-**Studies:** 782 total (MGnify full pull 681; curatedMetagenomicData 93; earlier
+**Studies:** 781 total (MGnify full pull 681; curatedMetagenomicData 93; earlier
 selective MGnify pull 12; plus the disease cohorts). The MGnify human body-site
 catalogue index (`mgnify_human_bodysite_studies.csv`) lists 774 catalogued studies.
 
-**Health status** (`health_status` in the catalogue): healthy 15,162 / diseased 10,467
+**Health status** (`health_status` in the catalogue): healthy 14,835 / diseased 9,245
 (145 distinct conditions, shotgun tier only) / unlabeled 164,972 (the 16S tier).
 
 **Taxonomic vocabulary note:** the MGnify full pull uses SILVA lineages; AGP uses
@@ -51,12 +51,12 @@ Corpusome/
 ├── README.md · MANIFEST.csv          (MANIFEST = path, size_bytes, sha256 for every file)
 ├── data/
 │   ├── metadata/
-│   │   ├── corpus_metadata_catalog_expanded.{parquet,csv}   190,601 × 15 (master catalogue)
+│   │   ├── corpus_metadata_catalog_expanded.{parquet,csv}   189,052 × 15 (master catalogue)
 │   │   └── mgnify_human_bodysite_studies.csv                774-study catalogue index
 │   ├── shotgun/                       shotgun tier
 │   │   ├── corpus_shotgun_species_relab.parquet   22,747 × 766   MetaPhlAn3 species
 │   │   ├── corpus_shotgun_pathway_relab.parquet   22,512 × 511   HUMAnN3 pathways
-│   │   └── corpus_shotgun_metadata.csv            25,555 rows
+│   │   └── corpus_shotgun_metadata.csv            24,006 rows
 │   ├── 16s/                           merged 16S tier (harmonized terminal-genus)
 │   │   └── corpus_16s_genus_relab_expanded.parquet   165,325 × 1,492
 │   ├── 16s_mgnify_full/               MGnify full pull, per-rank (SILVA lineages)

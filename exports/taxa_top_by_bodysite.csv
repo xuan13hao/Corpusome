@@ -1,0 +1,144 @@
+tier,body_site,rank,taxon,taxon_name,mean_relative_abundance,mean_relative_abundance_pct
+16S,stool,1,g__Bacteroides,Bacteroides,0.22483864,22.4839
+16S,stool,2,g__Faecalibacterium,Faecalibacterium,0.08874582,8.8746
+16S,stool,3,g__Bifidobacterium,Bifidobacterium,0.05657561,5.6576
+16S,stool,4,g__Blautia,Blautia,0.03362341,3.3623
+16S,stool,5,g__Alistipes,Alistipes,0.031507,3.1507
+16S,stool,6,g__Parabacteroides,Parabacteroides,0.03103325,3.1033
+16S,stool,7,g__Streptococcus,Streptococcus,0.02797629,2.7976
+16S,stool,8,g__Akkermansia,Akkermansia,0.02419635,2.4196
+16S,stool,9,g__Roseburia,Roseburia,0.02059588,2.0596
+16S,stool,10,g__Dialister,Dialister,0.01908913,1.9089
+16S,stool,11,g__Prevotella,Prevotella,0.01861662,1.8617
+16S,stool,12,g__Subdoligranulum,Subdoligranulum,0.01791247,1.7912
+16S,stool,13,Other,Other,0.39583394,39.5834
+16S,respiratory,1,g__Streptococcus,Streptococcus,0.17667283,17.6673
+16S,respiratory,2,g__Pseudomonas,Pseudomonas,0.07867436,7.8674
+16S,respiratory,3,g__Veillonella,Veillonella,0.0720982,7.2098
+16S,respiratory,4,g__Haemophilus,Haemophilus,0.07131593,7.1316
+16S,respiratory,5,g__Moraxella,Moraxella,0.06764285,6.7643
+16S,respiratory,6,g__Staphylococcus,Staphylococcus,0.06445062,6.4451
+16S,respiratory,7,g__Prevotella,Prevotella,0.05342401,5.3424
+16S,respiratory,8,g__Neisseria,Neisseria,0.03523649,3.5236
+16S,respiratory,9,g__Rothia,Rothia,0.02167199,2.1672
+16S,respiratory,10,g__Dolosigranulum,Dolosigranulum,0.02134077,2.1341
+16S,respiratory,11,g__Fusobacterium,Fusobacterium,0.01875532,1.8755
+16S,respiratory,12,g__Lactobacillus,Lactobacillus,0.01715902,1.7159
+16S,respiratory,13,Other,Other,0.28437143,28.4371
+16S,oral,1,g__Streptococcus,Streptococcus,0.24266646,24.2666
+16S,oral,2,g__Veillonella,Veillonella,0.07020279,7.0203
+16S,oral,3,g__Rothia,Rothia,0.06972026,6.972
+16S,oral,4,g__Neisseria,Neisseria,0.06826756,6.8268
+16S,oral,5,g__Haemophilus,Haemophilus,0.0629044,6.2904
+16S,oral,6,g__Actinomyces,Actinomyces,0.0514887,5.1489
+16S,oral,7,g__Fusobacterium,Fusobacterium,0.04034321,4.0343
+16S,oral,8,g__Prevotella,Prevotella,0.03644947,3.6449
+16S,oral,9,g__Porphyromonas,Porphyromonas,0.03093418,3.0934
+16S,oral,10,g__Leptotrichia,Leptotrichia,0.02684365,2.6844
+16S,oral,11,g__Corynebacterium,Corynebacterium,0.0242247,2.4225
+16S,oral,12,g__Gemella,Gemella,0.02318092,2.3181
+16S,oral,13,Other,Other,0.2353382,23.5338
+16S,skin,1,g__Staphylococcus,Staphylococcus,0.22967944,22.9679
+16S,skin,2,g__Propionibacterium,Propionibacterium,0.10700743,10.7007
+16S,skin,3,g__Cutibacterium,Cutibacterium,0.08000463,8.0005
+16S,skin,4,g__Corynebacterium,Corynebacterium,0.07616201,7.6162
+16S,skin,5,g__Streptococcus,Streptococcus,0.07331459,7.3315
+16S,skin,6,g__Pseudomonas,Pseudomonas,0.04299356,4.2994
+16S,skin,7,g__Lawsonella,Lawsonella,0.02647621,2.6476
+16S,skin,8,g__Acinetobacter,Acinetobacter,0.0187885,1.8788
+16S,skin,9,g__Malassezia,Malassezia,0.01737052,1.7371
+16S,skin,10,g__Lactobacillus,Lactobacillus,0.01667385,1.6674
+16S,skin,11,g__Anaerococcus,Anaerococcus,0.01452058,1.4521
+16S,skin,12,g__Haemophilus,Haemophilus,0.01133082,1.1331
+16S,skin,13,Other,Other,0.27184694,27.1847
+16S,urogenital,1,g__Lactobacillus,Lactobacillus,0.55875877,55.8759
+16S,urogenital,2,g__Gardnerella,Gardnerella,0.1006721,10.0672
+16S,urogenital,3,g__Prevotella,Prevotella,0.0512251,5.1225
+16S,urogenital,4,g__Atopobium,Atopobium,0.03103592,3.1036
+16S,urogenital,5,g__Streptococcus,Streptococcus,0.02964758,2.9648
+16S,urogenital,6,g__Methylobacterium,Methylobacterium,0.01633128,1.6331
+16S,urogenital,7,g__Sneathia,Sneathia,0.01614871,1.6149
+16S,urogenital,8,g__Anaerococcus,Anaerococcus,0.01358063,1.3581
+16S,urogenital,9,g__Peptoniphilus,Peptoniphilus,0.01193711,1.1937
+16S,urogenital,10,g__Bifidobacterium,Bifidobacterium,0.01174152,1.1742
+16S,urogenital,11,g__Megasphaera,Megasphaera,0.01114786,1.1148
+16S,urogenital,12,g__Shuttleworthia,Shuttleworthia,0.01031769,1.0318
+16S,urogenital,13,Other,Other,0.13570302,13.5703
+shotgun,stool,1,s__Prevotella_copri,Prevotella copri,0.07067015,7.067
+shotgun,stool,2,s__Bacteroides_vulgatus,Bacteroides vulgatus,0.06320686,6.3207
+shotgun,stool,3,s__Bacteroides_uniformis,Bacteroides uniformis,0.05237538,5.2375
+shotgun,stool,4,s__Faecalibacterium_prausnitzii,Faecalibacterium prausnitzii,0.05091827,5.0918
+shotgun,stool,5,s__Escherichia_coli,Escherichia coli,0.02909463,2.9095
+shotgun,stool,6,s__Bifidobacterium_longum,Bifidobacterium longum,0.02702945,2.7029
+shotgun,stool,7,s__Eubacterium_rectale,Eubacterium rectale,0.02660065,2.6601
+shotgun,stool,8,s__Bacteroides_dorei,Bacteroides dorei,0.02631492,2.6315
+shotgun,stool,9,s__Alistipes_putredinis,Alistipes putredinis,0.02439816,2.4398
+shotgun,stool,10,s__Ruminococcus_bromii,Ruminococcus bromii,0.02231608,2.2316
+shotgun,stool,11,s__Bifidobacterium_adolescentis,Bifidobacterium adolescentis,0.0198168,1.9817
+shotgun,stool,12,s__Bacteroides_stercoris,Bacteroides stercoris,0.01908411,1.9084
+shotgun,stool,13,Other,Other,0.56361514,56.3615
+shotgun,oral,1,s__Streptococcus_mitis,Streptococcus mitis,0.11916803,11.9168
+shotgun,oral,2,s__Neisseria_flavescens,Neisseria flavescens,0.04600717,4.6007
+shotgun,oral,3,s__Haemophilus_parainfluenzae,Haemophilus parainfluenzae,0.03710793,3.7108
+shotgun,oral,4,s__Rothia_mucilaginosa,Rothia mucilaginosa,0.0301092,3.0109
+shotgun,oral,5,s__Streptococcus_oralis,Streptococcus oralis,0.02971737,2.9717
+shotgun,oral,6,s__Rothia_dentocariosa,Rothia dentocariosa,0.0278588,2.7859
+shotgun,oral,7,s__Streptococcus_parasanguinis,Streptococcus parasanguinis,0.02693671,2.6937
+shotgun,oral,8,s__Corynebacterium_matruchotii,Corynebacterium matruchotii,0.02526217,2.5262
+shotgun,oral,9,s__Prevotella_melaninogenica,Prevotella melaninogenica,0.02474884,2.4749
+shotgun,oral,10,s__Gemella_haemolysans,Gemella haemolysans,0.02183502,2.1835
+shotgun,oral,11,s__Veillonella_parvula,Veillonella parvula,0.02080674,2.0807
+shotgun,oral,12,s__Neisseria_sicca,Neisseria sicca,0.01820686,1.8207
+shotgun,oral,13,Other,Other,0.56074336,56.0743
+shotgun,skin,1,s__Cutibacterium_acnes,Cutibacterium acnes,0.45144432,45.1444
+shotgun,skin,2,s__Staphylococcus_epidermidis,Staphylococcus epidermidis,0.09292113,9.2921
+shotgun,skin,3,s__Malassezia_restricta,Malassezia restricta,0.03426291,3.4263
+shotgun,skin,4,s__Staphylococcus_aureus,Staphylococcus aureus,0.03100189,3.1002
+shotgun,skin,5,s__Staphylococcus_capitis,Staphylococcus capitis,0.03011072,3.0111
+shotgun,skin,6,s__Staphylococcus_hominis,Staphylococcus hominis,0.02799785,2.7998
+shotgun,skin,7,s__Micrococcus_luteus,Micrococcus luteus,0.01851182,1.8512
+shotgun,skin,8,s__Cutibacterium_granulosum,Cutibacterium granulosum,0.01706803,1.7068
+shotgun,skin,9,s__Corynebacterium_afermentans,Corynebacterium afermentans,0.01401945,1.4019
+shotgun,skin,10,s__Enhydrobacter_aerosaccus,Enhydrobacter aerosaccus,0.0100162,1.0016
+shotgun,skin,11,s__Moraxella_osloensis,Moraxella osloensis,0.0098303,0.983
+shotgun,skin,12,s__Malassezia_globosa,Malassezia globosa,0.00944601,0.9446
+shotgun,skin,13,Other,Other,0.16223739,16.2237
+shotgun,urogenital,1,s__Lactobacillus_crispatus,Lactobacillus crispatus,0.40915886,40.9159
+shotgun,urogenital,2,s__Lactobacillus_iners,Lactobacillus iners,0.20432614,20.4326
+shotgun,urogenital,3,s__Lactobacillus_gasseri,Lactobacillus gasseri,0.09462151,9.4622
+shotgun,urogenital,4,s__Gardnerella_vaginalis,Gardnerella vaginalis,0.03466585,3.4666
+shotgun,urogenital,5,s__Atopobium_vaginae,Atopobium vaginae,0.02208171,2.2082
+shotgun,urogenital,6,s__Lactobacillus_paragasseri,Lactobacillus paragasseri,0.01559947,1.5599
+shotgun,urogenital,7,s__Bifidobacterium_breve,Bifidobacterium breve,0.01277471,1.2775
+shotgun,urogenital,8,s__Prevotella_copri,Prevotella copri,0.00962707,0.9627
+shotgun,urogenital,9,s__Prevotella_timonensis,Prevotella timonensis,0.00688533,0.6885
+shotgun,urogenital,10,s__Mageeibacillus_indolicus,Mageeibacillus indolicus,0.00417593,0.4176
+shotgun,urogenital,11,s__Prevotella_bivia,Prevotella bivia,0.00391523,0.3915
+shotgun,urogenital,12,s__Bifidobacterium_scardovii,Bifidobacterium scardovii,0.00368819,0.3688
+shotgun,urogenital,13,Other,Other,0.03058564,3.0586
+shotgun,respiratory,1,s__Cutibacterium_acnes,Cutibacterium acnes,0.37399116,37.3991
+shotgun,respiratory,2,s__Corynebacterium_accolens,Corynebacterium accolens,0.13912897,13.9129
+shotgun,respiratory,3,s__Staphylococcus_epidermidis,Staphylococcus epidermidis,0.10454238,10.4542
+shotgun,respiratory,4,s__Dolosigranulum_pigrum,Dolosigranulum pigrum,0.09173148,9.1731
+shotgun,respiratory,5,s__Staphylococcus_aureus,Staphylococcus aureus,0.03664981,3.665
+shotgun,respiratory,6,s__Malassezia_restricta,Malassezia restricta,0.03507354,3.5074
+shotgun,respiratory,7,s__Corynebacterium_pseudodiphtheriticum,Corynebacterium pseudodiphtheriticum,0.02719468,2.7195
+shotgun,respiratory,8,s__Lactobacillus_iners,Lactobacillus iners,0.010722,1.0722
+shotgun,respiratory,9,s__Cutibacterium_granulosum,Cutibacterium granulosum,0.00826728,0.8267
+shotgun,respiratory,10,s__Streptococcus_mitis,Streptococcus mitis,0.00785617,0.7856
+shotgun,respiratory,11,s__Anaerococcus_octavius,Anaerococcus octavius,0.00475877,0.4759
+shotgun,respiratory,12,s__Neisseria_flavescens,Neisseria flavescens,0.00285165,0.2852
+shotgun,respiratory,13,Other,Other,0.05020254,5.0203
+shotgun,milk,1,s__Staphylococcus_epidermidis,Staphylococcus epidermidis,0.4058068,40.5807
+shotgun,milk,2,s__Streptococcus_mitis,Streptococcus mitis,0.20889339,20.8893
+shotgun,milk,3,s__Streptococcus_salivarius,Streptococcus salivarius,0.15002846,15.0028
+shotgun,milk,4,s__Bifidobacterium_breve,Bifidobacterium breve,0.05732162,5.7322
+shotgun,milk,5,s__Veillonella_atypica,Veillonella atypica,0.03071579,3.0716
+shotgun,milk,6,s__Corynebacterium_kroppenstedtii,Corynebacterium kroppenstedtii,0.02276463,2.2765
+shotgun,milk,7,s__Actinomyces_odontolyticus,Actinomyces odontolyticus,0.02080583,2.0806
+shotgun,milk,8,s__Streptococcus_peroris,Streptococcus peroris,0.01539844,1.5398
+shotgun,milk,9,s__Rothia_dentocariosa,Rothia dentocariosa,0.00963141,0.9631
+shotgun,milk,10,s__Gemella_haemolysans,Gemella haemolysans,0.00876863,0.8769
+shotgun,milk,11,s__Streptococcus_oralis,Streptococcus oralis,0.00850037,0.85
+shotgun,milk,12,s__Rothia_mucilaginosa,Rothia mucilaginosa,0.00698681,0.6987
+shotgun,milk,13,Other,Other,0.03845949,3.8459

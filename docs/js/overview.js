@@ -64,7 +64,7 @@ async function loadOverview() {
   });
 
   const srcOrder = ['MGnify_full', 'curatedMetagenomicData', 'AGP', 'MGnify',
-                    'Ferreiro2023', 'Brain_16S', 'TCGA_Poore2020', 'BALF_mNGS', 'Hartwig_Battaglia2024', 'MLRepo'];
+                    'Ferreiro2023', 'Brain_16S', 'BALF_mNGS', 'Hartwig_Battaglia2024', 'MLRepo'];
   const srcTraces = srcOrder.map(src => ({
     name: src.replace('curatedMetagenomicData', 'cMD'),
     type: 'bar',
